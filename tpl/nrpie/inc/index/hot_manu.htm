@@ -1,0 +1,20 @@
+<div class="keyWords">
+				<!--{if $search_list}-->
+					<dl class="con">
+						<dt class="pf1"><a href="#">HOT</a></dt>
+						<dd><!--{loop $search_list $search}--><a href=""><!--{$search['tag_name']}--></a><!--{/loop}--></dd>
+					</dl>
+					<!--{/if}-->
+					<!--{if $manu_list}-->
+					<dl class="con">
+						<dt class="rs1"><a href="#">品牌</a></dt>
+						<dd class="pinp"><!--{loop $manu_list $manu}--><a href=""><!--{$manu['tag_name']}--></a><!--{/loop}--></dd>
+					</dl>
+					<!--{/if}-->
+					<!--{if $touch_list}-->
+					<dl class="con small">
+						<dt class="rs1"><a href="#">网站</a></dt>
+						<dd><!--{loop $touch_list $touch}--><a href=""><!--{$touch['tag_name']}--></a><!--{/loop}--></dd>
+					</dl>
+					<!--{/if}-->
+				</div>

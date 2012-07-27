@@ -1,0 +1,22 @@
+<ul class="tab_p">
+<li>优惠活动</li>
+<li class="">热度排行</li>
+</ul>
+<div class="tab_con">
+<dl class="tab_dl1">
+<ul class="tab_huod">
+<li><a href="#">新年换购活动1223</a></li>
+<li><a href="#">新年换购活动1223</a></li>
+<li><a href="#">新年换购活动1223</a></li>
+<li><a href="#">新年换购活动1223</a></li>
+<li><a href="#">新年换购活动1223</a></li>
+</ul>
+</dl>
+<dl class="tab_hot">
+<ul class=" tab_huod tab_huod2">
+<!--{loop $hot_rank $key $rank}-->
+<li><a href="{$rank['url']}" target="_blank" title="{$rank['content_t']}">{$rank['content_t']}</a></li>
+<!--{/loop}-->
+</ul>
+</dl>
+</div>

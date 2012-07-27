@@ -1,0 +1,32 @@
+<!--{if $pager['page_count'] > 1}-->
+<div id="fenye">
+    <ul class="fenye_con">
+    	<!--{if $pager['page'] > 1}-->
+        <li class="first"><a href="$pager[page_prev]" page="$pager[prev_page]">{lang page_prev}</a></li>
+        <!--{/if}-->
+        
+        <!--{loop $pager['page_nums'] $page_num}-->
+        <!--{eval $page_url = $page_num[url];}-->
+        <!--{if $pager['page'] == $page_num['name']}-->
+        <li><a href="javascript:void(0);" style="background-color:#333;">$page_num[name]</a></li>
+        <!--{elseif $page_num['name'] == '...'}-->
+        <li>...</li>
+        <!--{else}-->
+        <li><a href="$page_num[url]" page="$page_num[name]">$page_num[name]</a></li>
+        <!--{/if}-->
+        <!--{/loop}-->
+        
+        <!--{if $pager['page'] < $pager['page_count']}-->
+        <li class="last"><a href="$pager[page_next]" page="$pager[next_page]">{lang page_next}</a></li>
+        <!--{/if}-->
+        <?php
+            $url_arr = parse_url($page_url); 
+            parse_str($url_arr['query'],$que_arr); 
+            unset($que_arr['page']);
+            $pageUrl_pre = $url_arr['path'].'?'.http_build_query($que_arr).'&';
+        ?>
+        <li class="yeshu">跳至 <input name="pageText" id="pageText" type="text" /> 页</li>
+        <li class="qding"><a href="javascript:void(0);" onclick="var pageNum=parseInt($('#pageText').val());if(isNaN(pageNum)){pageNum=1;}location.href='{$pageUrl_pre}'+'page='+pageNum;">确定</a></li>
+    </ul>
+</div>
+<!--{/if}-->

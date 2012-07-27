@@ -1,0 +1,562 @@
+<?php
+$_FANWE['CACHE_CSS_SCRIPT_PHP'] = array (
+  'css' => 
+  array (
+    0 => 
+    array (
+      0 => './tpl/css/usercenter.css',
+      1 => './tpl/css/main.css',
+    ),
+  ),
+  'script' => 
+  array (
+    0 => 
+    array (
+      0 => './public/js/lang.js',
+      1 => './public/js/setting.js',
+      2 => './public/js/jquery.bgiframe.js',
+      3 => './public/js/jquery.weebox.js',
+      4 => './public/js/ajaxfileupload.js',
+      5 => './public/js/jquery.dragsort.js',
+      6 => './public/js/swfobject.js',
+    ),
+  ),
+);
+?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>男人SHOW - 男人派购物分享社区 - FANWE</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+<meta name="keywords" content="方维,方维购物分享,网购,淘宝网购物,淘宝网导购" />
+
+<meta name="description" content="方维购物分享是一个纯买家社区，百万网友一起淘宝网购物，挖掘好店、分享网购，您可以获得最可靠的店铺排行和淘宝网购物分享。" />
+
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+
+<!--<script src="" type="text/javascript"></script>-->
+<script src="/public/js/jquery.js" type="text/javascript" type="text/javascript"></script>
+<script src="/public/js/base.js" type="text/javascript" type="text/javascript"></script>
+<script src="/public/js/jquery.easing.js" type="text/javascript" type="text/javascript"></script>
+<script src="/public/js/jquery.lazyload.js" type="text/javascript" type="text/javascript"></script>
+<script src="/public/js/main.js" type="text/javascript" type="text/javascript"></script>
+<script src="/public/js/main_con.js" type="text/javascript" type="text/javascript"></script>
+
+<link rel="stylesheet" type="text/css" href="./public/data/tpl/css/994051df942774913bb053331c956f5b.css" media="all"/>
+<script type="text/javascript">
+
+var SITE_PATH = '/';
+
+var SITE_URL = 'http://www.nrpie.com/';
+
+var TPL_PATH = '/tpl/nrpie/';
+
+var PUBLIC_PATH	 = '/public/';
+
+var MODULE_NAME	 = 'Book';
+
+var ACTION_NAME	 = 'shopping';
+
+var COOKIE_PRE = "7v7B_2132_";
+
+</script>
+
+</head>
+
+<body>
+
+
+
+<div id="header">
+
+<div class="top">
+
+<div class="logo"></div>
+
+<div class="rig">
+
+<p class="con">您好，欢迎来到男人派！<a href="#" id="jia">收藏此网站</a><a href="#">分享</a></p>
+
+<div class="searchbox">
+
+<form id="soso_form" method="get" action="/book.php?action=search">
+
+<input type="text" id="queryString" value="" tooltip="请输入关键字" name="tag">
+
+                        <input type="submit" value="" id="search" class="btn" />
+
+<input type="hidden" name="action" value="search" />
+
+</form>	
+
+</div>	
+
+</div>
+
+</div>
+
+<div class="nav">
+
+<ul class="nav_ul">
+
+<li class="nav_ulli "><a href="/index.php?action=index">首页</a><em></em></li>
+
+                
+                
+                <li class="nav_ulli on"><a href="/book.php?action=shopping">男人SHOW</a><em></em></li>
+
+                
+                            
+                <li class="nav_ulli ">
+
+                	<a href='/book.php?action=cate&cate=CLOTHING'>衣服</a>
+
+                    <em></em>
+
+                </li>
+
+                                
+                <li class="nav_ulli ">
+
+                	<a href='/book.php?action=cate&cate=SHOES'>鞋子</a>
+
+                    <em></em>
+
+                </li>
+
+                                
+                <li class="nav_ulli ">
+
+                	<a href='/book.php?action=cate&cate=ACCESSORIES'>护肤</a>
+
+                    <em></em>
+
+                </li>
+
+                                
+                <li class="nav_ulli ">
+
+                	<a href='/book.php?action=cate&cate=BAGS'>配饰</a>
+
+                    <em></em>
+
+                </li>
+
+                                                                                
+<li class="sml_nav nav_engag"><a href="#">约会帮帮忙</a><em></em></li>
+
+                <li class="sml_nav "><a href="/book.php?action=dapei">搭配秀</a><em></em></li>
+                <!--li class="sml_nav "><a href="/book.php?action=look">晒货</a><em></em></li-->
+                <li class="sml_nav "><a href="/club.php?action=index">主题</a><em></em></li>
+
+</ul>
+
+            <!--dynamic getUserInfo--></div>
+
+</div><!--主体盒子开始-->
+<!--频道页面开始-->
+
+<div class="listmenu clearfix">
+        <div class="hd clearfix">
+        <div class="nav_show"><a href="#"><b class="color">男人SHOW</b>/MANSHOW</a></div>
+        <div class="fl infor"><p>聚焦男人世界</p></div>
+    </div>
+    <div class="bd_tags clearfix">
+        <ul class="tagshow">
+
+                                                <li class="wd1">
+                <a href='/book.php?action=cate&cate=CLOTHING'><span class="t_tit">衣服</span></a>
+            </li>
+                                                <li class="wd2">
+                <a href='/book.php?action=cate&cate=SHOES'><span class="t_tit">鞋子</span></a>
+            </li>
+                                                <li class="wd3">
+                <a href='/book.php?action=cate&cate=ACCESSORIES'><span class="t_tit">护肤</span></a>
+            </li>
+                                                <li class="wd4">
+                <a href='/book.php?action=cate&cate=BAGS'><span class="t_tit">配饰</span></a>
+            </li>
+                                                <li class="wd5">
+                <a href='/book.php?action=cate&cate=BEAUTIES'><span class="t_tit">玩物</span></a>
+            </li>
+                                                <li class="wd6">
+                <a href='/book.php?action=cate&cate=search'><span class="t_tit">HOT</span></a>
+            </li>
+                                                <li class="wd7">
+                <a href='/book.php?action=cate&cate=style'><span class="t_tit">网站</span></a>
+            </li>
+                                                <li class="wd8">
+                <a href='/book.php?action=cate&cate=manu'><span class="t_tit">品牌</span></a>
+            </li>
+                        
+        </ul>            
+    </div>
+</div>
+
+
+<div class="seco_box">
+    <div class="sortall">
+<h1 class="yahei">男人SHOW</h1>
+<div class="sort_order">
+                    <span class="sort_span">排序:</span>
+                    <ul>
+                        <li class="c_sort_l"><a  href="/book.php?action=shopping&sort=new"><i></i><span>最新</span></a></li>
+                        <li class="c_sort_c"><a class="c" href="/book.php?action=shopping&sort=hot7"><span>最热</span></a></li>
+                        <li class="c_sort_r"><a  href="/book.php?action=shopping&sort=pop"><span>有派</span><i></i></a></li>
+                    </ul>
+                </div>
+<div class="sort_order">
+                    <span class="sort_span">价格:</span>
+                    <ul>
+                       <li class="c_sort_l"><a href="/book.php?action=shopping&sort=hot7&psort=all" ><i></i><span>全部</span></a></li>
+                       <li class="c_sort_c"><a href="/book.php?action=shopping&sort=hot7&psort=p1" ><span>100元</span></a></li>
+                       <li class="c_sort_c"><a href="/book.php?action=shopping&sort=hot7&psort=p2" ><span>200元</span></a></li>
+                       <li class="c_sort_c"><a href="/book.php?action=shopping&sort=hot7&psort=p3" ><span>500元</span></a></li>
+                       <li class="c_sort_r"><a href="/book.php?action=shopping&sort=hot7&psort=high" ><span>更高</span><i></i></a></li>	
+                    </ul>
+                </div>
+<div class="sort_order">
+                    <span class="sort_span">颜色:</span>
+                    <div class="cate_color">
+                       <b class="lft"></b>
+                       <div class="mid clearfix">
+                       	  <span class="tit">不限</span>
+                          <div class="colbox">
+                          	<div class="colbox1">
+                          		<a style="background-color:red;" href="/book.php?action=shopping&sort=hot7&csort=c1"  ></a>
+                            </div>
+                          </div>
+                          <div class="colbox">
+                          	<div class="colbox1">
+                          		<a style="background-color:orange;" href="/book.php?action=shopping&sort=hot7&csort=c2" ></a>
+                            </div>
+                          </div>
+                          <div class="colbox">
+                          	<div class="colbox1">
+                          		<a style="background-color:yellow;" href="/book.php?action=shopping&sort=hot7&csort=c3" ></a>
+                            </div>
+                          </div>
+                          <div class="colbox">
+                          	<div class="colbox1">
+                          		<a style="background-color:green;" href="/book.php?action=shopping&sort=hot7&csort=c4" ></a>
+                            </div>
+                          </div>
+                          <div class="colbox">
+                          	<div class="colbox1">
+                          		<a style="background-color:blue;" href="/book.php?action=shopping&sort=hot7&csort=c5" ></a>
+                            </div>
+                          </div>
+                          <div class="colbox">
+                          	<div class="colbox1">
+                          		<a style="background-color:white;" href="/book.php?action=shopping&sort=hot7&csort=c6" ></a>
+                            </div>
+                          </div>
+                       </div>
+                       <b class="rit"></b>                       
+                    </div>
+                </div>
+</div>    <div class="list_box clearfix">
+
+                <div class="count_list" id="col1">
+            <div class="counbox" shareID="407" id="share_item_407">
+                    <div class="pic">
+                <a href="/note.php?action=g&sid=407&id=123" target="_blank"><img src="./public/upload/share/000/000/004/07/9dbf75efcfc5b07a6ae0ff2646b3aed4at0nZu_200x999.jpg"></a>
+            </div>
+            <p class="words_msg"><a class="lef" href="/note.php?action=g&sid=407&id=123">TOTO SHOP 2012盛...</a><span class="rig">¥199</span></p>
+                        <div class="favbox">
+                <a href="javascript:;" onclick="$.Fav_Share(407,this,32,'#share_item_407');" class="favaimg bh">赞</a>
+                <div class="favcountbox">
+                	<a target="_blank" href="/note.php?action=index&sid=407" class="fav_count">0</a>
+                	<i></i>
+                </div>
+                <a href="#" class="linkurl">淘宝网</a>
+            </div>
+            <p class="confont"><a target="_blank" href="/note.php?action=index&sid=407">有什么新鲜事要跟菇凉们一起分享？</a></p>
+            <div class="infor">
+                <a href="#" class="a1">同类筛选</a><a target="_blank" href="/note.php?action=index&sid=407" title="0条评论">评论</a><a href="#">收藏</a>
+            </div>            
+        </div>
+                <div class="counbox" shareID="412" id="share_item_412">
+                    <div class="pic">
+                <a href="/note.php?action=m&sid=412&id=81" target="_blank"><img src="./public/upload/share/000/000/004/12/e3ad2b72c26fdaa6db8fb35887359c3e2x01rY_200x999.jpg" ></a>
+            </div>
+                        <div class="pic">
+                <a href="/note.php?action=g&sid=412&id=125" target="_blank"><img src="./public/upload/share/000/000/004/12/608fd3e855a7d4ff8ce67fe79a38d29fIVBNNT_200x999.jpg"></a>
+            </div>
+            <p class="words_msg"><a class="lef" href="/note.php?action=g&sid=412&id=125">49包邮 暑期大促 ...</a><span class="rig">¥98</span></p>
+                        <div class="favbox">
+                <a href="javascript:;" onclick="$.Fav_Share(412,this,32,'#share_item_412');" class="favaimg bh">赞</a>
+                <div class="favcountbox">
+                	<a target="_blank" href="/note.php?action=index&sid=412" class="fav_count">0</a>
+                	<i></i>
+                </div>
+                <a href="#" class="linkurl">淘宝网</a>
+            </div>
+            <p class="confont"><a target="_blank" href="/note.php?action=index&sid=412">简单介绍下这套搭配吧~</a></p>
+            <div class="infor">
+                <a href="#" class="a1">同类筛选</a><a target="_blank" href="/note.php?action=index&sid=412" title="0条评论">评论</a><a href="#">收藏</a>
+            </div>            
+        </div>
+                
+    </div>
+            <div class="count_list" id="col2">
+            <div class="counbox" shareID="406" id="share_item_406">
+                    <div class="pic">
+                <a href="/note.php?action=g&sid=406&id=122" target="_blank"><img src="./public/upload/share/000/000/004/06/ed6fc90da85889a19e244d5252765f98EZN1Sg_200x999.jpg"></a>
+            </div>
+            <p class="words_msg"><a class="lef" href="/note.php?action=g&sid=406&id=122">*de-sogo*德国正...</a><span class="rig">¥99</span></p>
+                        <div class="pic">
+                <a href="/note.php?action=m&sid=406&id=78" target="_blank"><img src="./public/upload/share/000/000/004/06/5f22b7f1ead61bf10dfbf4a6712cf5c9NXf7xY_200x999.jpg" ></a>
+            </div>
+                        <div class="favbox">
+                <a href="javascript:;" onclick="$.Fav_Share(406,this,32,'#share_item_406');" class="favaimg bh">赞</a>
+                <div class="favcountbox">
+                	<a target="_blank" href="/note.php?action=index&sid=406" class="fav_count">0</a>
+                	<i></i>
+                </div>
+                <a href="#" class="linkurl">淘宝网</a>
+            </div>
+            <p class="confont"><a target="_blank" href="/note.php?action=index&sid=406">讽德诵功</a></p>
+            <div class="infor">
+                <a href="#" class="a1">同类筛选</a><a target="_blank" href="/note.php?action=index&sid=406" title="0条评论">评论</a><a href="#">收藏</a>
+            </div>            
+        </div>
+                <div class="counbox" shareID="253" id="share_item_253">
+                    <div class="pic">
+                <a href="/note.php?action=g&sid=253&id=28" target="_blank"><img src="./public/upload/share/000/000/002/53/5f7b967059ab404c7741191908a825745uS8so_200x999.jpg"></a>
+            </div>
+            <p class="words_msg"><a class="lef" href="/note.php?action=g&sid=253&id=28">Aax Fory流行男鞋...</a><span class="rig">¥298</span></p>
+                        <div class="favbox">
+                <a href="javascript:;" onclick="$.Fav_Share(253,this,32,'#share_item_253');" class="favaimg bh">赞</a>
+                <div class="favcountbox">
+                	<a target="_blank" href="/note.php?action=index&sid=253" class="fav_count">0</a>
+                	<i></i>
+                </div>
+                <a href="#" class="linkurl">淘宝网</a>
+            </div>
+            <p class="confont"><a target="_blank" href="/note.php?action=index&sid=253">有什么新鲜事要跟菇凉们一起分享？</a></p>
+            <div class="infor">
+                <a href="#" class="a1">同类筛选</a><a target="_blank" href="/note.php?action=index&sid=253" title="0条评论">评论</a><a href="#">收藏</a>
+            </div>            
+        </div>
+                
+    </div>
+            <div class="count_list" id="col3">
+            <div class="counbox" shareID="405" id="share_item_405">
+                    <div class="pic">
+                <a href="/note.php?action=g&sid=405&id=121" target="_blank"><img src="./public/upload/share/000/000/004/05/c2356b3c7dca34b010b6e57e5d61a3d76dBua5_200x999.jpg"></a>
+            </div>
+            <p class="words_msg"><a class="lef" href="/note.php?action=g&sid=405&id=121">卡宾正品CABBEEN...</a><span class="rig">¥399</span></p>
+                        <div class="pic">
+                <a href="/note.php?action=m&sid=405&id=77" target="_blank"><img src="./public/upload/share/000/000/004/05/9f83383a7ebe66c8d090ae37933058f3GGBgYz_200x999.jpg" ></a>
+            </div>
+                        <div class="favbox">
+                <a href="javascript:;" onclick="$.Fav_Share(405,this,32,'#share_item_405');" class="favaimg bh">赞</a>
+                <div class="favcountbox">
+                	<a target="_blank" href="/note.php?action=index&sid=405" class="fav_count">0</a>
+                	<i></i>
+                </div>
+                <a href="#" class="linkurl">淘宝网</a>
+            </div>
+            <p class="confont"><a target="_blank" href="/note.php?action=index&sid=405">dasdas</a></p>
+            <div class="infor">
+                <a href="#" class="a1">同类筛选</a><a target="_blank" href="/note.php?action=index&sid=405" title="0条评论">评论</a><a href="#">收藏</a>
+            </div>            
+        </div>
+                <div class="counbox" shareID="275" id="share_item_275">
+                    <div class="pic">
+                <a href="/note.php?action=g&sid=275&id=43" target="_blank"><img src="./public/upload/share/000/000/002/75/9c508e61f3271445fc447168dccc1ba2WM6zwP_200x999.jpg"></a>
+            </div>
+            <p class="words_msg"><a class="lef" href="/note.php?action=g&sid=275&id=43">【136524】花姑娘...</a><span class="rig">¥145</span></p>
+                        <div class="favbox">
+                <a href="javascript:;" onclick="$.Fav_Share(275,this,32,'#share_item_275');" class="favaimg bh">赞</a>
+                <div class="favcountbox">
+                	<a target="_blank" href="/note.php?action=index&sid=275" class="fav_count">0</a>
+                	<i></i>
+                </div>
+                <a href="#" class="linkurl">淘宝网</a>
+            </div>
+            <p class="confont"><a target="_blank" href="/note.php?action=index&sid=275">有什么新鲜事要跟菇凉们一起分享？</a></p>
+            <div class="infor">
+                <a href="#" class="a1">同类筛选</a><a target="_blank" href="/note.php?action=index&sid=275" title="0条评论">评论</a><a href="#">收藏</a>
+            </div>            
+        </div>
+                
+    </div>
+            <div class="count_list" id="col4">
+            <div class="counbox" shareID="411" id="share_item_411">
+                    <div class="pic">
+                <a href="/note.php?action=m&sid=411&id=80" target="_blank"><img src="./public/upload/share/000/000/004/11/adceadfcfe5b211658615d32aa368d3b2mWzYg_200x999.jpg" ></a>
+            </div>
+                        <div class="pic">
+                <a href="/note.php?action=g&sid=411&id=124" target="_blank"><img src="./public/upload/share/000/000/004/11/c2144c4a9f19b9b7a4698b2920b56b0951j7qJ_200x999.jpg"></a>
+            </div>
+            <p class="words_msg"><a class="lef" href="/note.php?action=g&sid=411&id=124">新款 韩版果冻糖...</a><span class="rig">¥16</span></p>
+                        <div class="favbox">
+                <a href="javascript:;" onclick="$.Fav_Share(411,this,32,'#share_item_411');" class="favaimg bh">赞</a>
+                <div class="favcountbox">
+                	<a target="_blank" href="/note.php?action=index&sid=411" class="fav_count">0</a>
+                	<i></i>
+                </div>
+                <a href="#" class="linkurl">淘宝网</a>
+            </div>
+            <p class="confont"><a target="_blank" href="/note.php?action=index&sid=411">简单介绍下这套搭配吧~</a></p>
+            <div class="infor">
+                <a href="#" class="a1">同类筛选</a><a target="_blank" href="/note.php?action=index&sid=411" title="0条评论">评论</a><a href="#">收藏</a>
+            </div>            
+        </div>
+                <div class="counbox" shareID="384" id="share_item_384">
+                    <div class="pic">
+                <a href="/note.php?action=g&sid=384&id=109" target="_blank"><img src="./public/upload/share/000/000/003/84/f92588e8c2fbe8df8b808e9ba368ce83X6YUWO_200x999.jpg"></a>
+            </div>
+            <p class="words_msg"><a class="lef" href="/note.php?action=g&sid=384&id=109">代购 超级奶爸The...</a><span class="rig">¥220</span></p>
+                        <div class="favbox">
+                <a href="javascript:;" onclick="$.Fav_Share(384,this,32,'#share_item_384');" class="favaimg bh">赞</a>
+                <div class="favcountbox">
+                	<a target="_blank" href="/note.php?action=index&sid=384" class="fav_count">0</a>
+                	<i></i>
+                </div>
+                <a href="#" class="linkurl">淘宝网</a>
+            </div>
+            <p class="confont"><a target="_blank" href="/note.php?action=index&sid=384">有什么新鲜事要跟菇凉们一起分享？</a></p>
+            <div class="infor">
+                <a href="#" class="a1">同类筛选</a><a target="_blank" href="/note.php?action=index&sid=384" title="0条评论">评论</a><a href="#">收藏</a>
+            </div>            
+        </div>
+                
+    </div>
+    
+    </div>
+</div>
+
+<!--分页开始--><div id="fenye">
+<ul class="fenye_con fenye_detail">
+<li class="first"><a href="/book.php?action=shopping&sort=hot7&page=1" class="page_prev" page="1">&lt;上一页</a></li>
+<li class="on">1</li>
+<li><a href="/book.php?action=shopping&sort=hot7&page=2" page="2">2</a></li>
+<li><a href="/book.php?action=shopping&sort=hot7&page=3" page="3">3</a></li>
+<li><a href="/book.php?action=shopping&sort=hot7&page=4" page="4">4</a></li>
+<li><a href="/book.php?action=shopping&sort=hot7&page=5" page="5">5</a></li>
+<li><a href="/book.php?action=shopping&sort=hot7&page=6" page="6">6</a></li>
+<li><i>...</i></li>
+<li><a href="/book.php?action=shopping&sort=hot7&page=14" page="14">14</a></li>
+<!--<li class="last"><a href="/book.php?action=shopping&sort=hot7&page=2" class="page_next" page="2">下一页&gt;</a></li>-->
+<li class="last"><a href="/book.php?action=shopping&sort=hot7&page=2" class="page_next" page="2">下一页&gt;</a></li>
+<!--
+<li class="yeshu">跳至
+<input type="text" name="">
+页</li>
+<li class="qding"><a href="javascript:;" onclick='self.location.href="/book.php?action=shopping&sort=hot7&page=14"'>确定</a></li>
+-->
+</ul>
+</div>
+<script>
+
+</script>
+<!--分页结束-->
+<!--主体盒子结束-->
+
+<script type="text/javascript">
+FANWE.NO_COUNTER = true;
+var colHeight = 0;
+var colIndex = 0;
+var rowHtml = '<div class="i_w_f_f empty_row"><div class="hd"></div><div class="bd"></div><div class="ft"></div></div>';
+jQuery(function(){<!--dynamic getShareByUserClickShareID--><!--dynamic getManageDynamic args=book_index-->if($.browser.msie&&($.browser.version == "6.0")&&!$.support.style)
+{
+return ;
+}
+else{
+$(".share_col").each(function(i){
+$(this).append(rowHtml);
+});
+$(window).scroll(function(){
+$(".share_col").each(function(i){
+$('.empty_row .bd',this).height(0);
+if($(this).height() > colHeight)
+{
+colIndex = i;
+colHeight = $(this).height();
+}
+});
+
+$(".share_col").each(function(i){
+if(i != colIndex)
+{
+$('.empty_row .bd',this).height(colHeight - $(this).height());
+}
+});
+});
+}
+});
+
+function ShowUserClickShare(result)
+{
+if($("#share_item_" + result.share_id).length > 0)
+{
+var thisshare = $("#share_item_" + result.share_id);
+var preshare = thisshare.prev();
+var parentcol = thisshare.parent();
+$(".col1").prepend(thisshare);
+if(!parentcol.hasClass("col1") && $(".col1 .i_w_f").length > 1)
+{
+if(preshare.get(0))
+preshare.after($(".col1 .i_w_f").eq(1));
+else
+parentcol.prepend($(".col1 .i_w_f").eq(1));
+}
+}
+else
+$(".col1").prepend(result.html);
+}
+</script>    <div id="footer" class="">
+<div class="foot_nav">
+<ul>
+<li ><a href="/index.php?action=index">首页</a></li>
+            
+                                    <li class="on"><a href="/book.php?action=shopping">男人SHOW</a></li>
+                                                <li >
+                <a href='/book.php?action=cate&cate=CLOTHING'>衣服</a>
+            </li>
+                                    <li >
+                <a href='/book.php?action=cate&cate=SHOES'>鞋子</a>
+            </li>
+                                    <li >
+                <a href='/book.php?action=cate&cate=ACCESSORIES'>护肤</a>
+            </li>
+                                    <li >
+                <a href='/book.php?action=cate&cate=BAGS'>配饰</a>
+            </li>
+                                                            <li><a href="#">品牌</a></li>
+<li><a href="#">用户帮助</a></li>
+</ul>
+</div>
+<div class="foot_nav2"><a href="#">关于我们</a>  <a href="#"> 联系我们</a> <a href="#">  广告投放</a>  <a href="#"> 给我们留言 </a><a href="#">  新手指南</a>  <a href="#"> 隐私政策</a><a href="">男人派</a><a href="">版权所有© 京ICP备12008301号</a></div>
+<div class="foot_log bh">男人派</div>
+</div>
+<div id="USER_INFO_TIP" style="display:none;">
+<div id="nru_infobox">
+<div class="tip_info">
+<img class="avatar" alt="" src="./tpl/images/nr_loading.gif">
+<div>
+<p><a href="#">&nbsp;</a></p>
+<p>获取用户信息...</p>
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="tip_toolbar"></div>
+<div class="tip_arrow"></div>
+</div>
+</body>
+<script src="./public/data/tpl/js/7341df8d07830303a450eecdc7b8f857.js" type="text/javascript" defer="true"></script><!--dynamic getScript--><script type="text/javascript">
+jQuery(function($){
+$(".lazyload").lazyload({"placeholder":"./tpl/images/nr_loading.gif"});
+});
+</script>
+</html>

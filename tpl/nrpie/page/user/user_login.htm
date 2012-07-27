@@ -1,0 +1,80 @@
+<?php
+	$css_list[0]['url'] = './tpl/css/usercenter.css';
+         $js_list[0] = './tpl/js/public.js';
+?>
+<!--{template inc/header}-->
+<div id="login_wrap" class="clearfix">
+<div class="log_con fl">
+	<h1>{lang login}<b>{$_FANWE['setting']['site_name']}</b></h1>
+	<div class="log_form">
+        <form id="loginForm" name="loginForm" action="" method="post">
+		<div class="liserror" id="iserror" style="display: none;">
+			<div class="jiao"></div>
+			<b class="lft"></b>
+			<b class="rit"></b>
+			<b class="lfb"></b>
+			<b class="rib"></b>
+			<div class="war clearfix"><strong class="errimgno"></strong><span>登录名或密码错误</span></div>
+			<div class="content">
+				<p>1、如果登录名是邮箱地址，请输入全称<br/>
+					如：<em>pie@nanrenpai.com</em><br/>
+					2、请检查登录名大小写是否正确。<br/>
+					3、请检查密码大小写是否正确。
+				</p>
+                </div>
+            </div>
+            <div class="liserror" id="iserror2" style="display: none;">
+			<div class="jiao"></div>
+			<b class="lft"></b>
+			<b class="rit"></b>
+			<b class="lfb"></b>
+			<b class="rib"></b>
+			<div class="war clearfix"><strong class="errimgno"></strong><span>用户被锁定，无法登录！</span></div>
+			<div class="content">
+				<p>1、可以联系管理员进行解锁。<br/>
+					如：<em>pie@nanrenpai.com</em><br/>
+					2、重新注册一个账户！<br/>
+				</p>
+                </div>
+            </div>
+		<dl class="log_name clearfix">
+			<dt>{lang user_name}：</dt>
+			<dd><div class="intxtbg int_w1"><em class="int_rit"></em><input class="int" type="text" maxlength="32" name="email_name" tooltip="邮箱 或 昵称" value=""></div></dd>
+		</dl>
+		<dl class="log_pass clearfix">
+			<dt>{lang user_password}：</dt>
+            <dd><div class="intxtbg int_w1"><em class="int_rit"></em>
+                    <input name="pass" type="password" class="int" ></div></dd>			
+		</dl>
+		<dl class="log_remember">
+			<label><input type="checkbox" checked="checked" class="check" name="remember" value="1209600">
+			<span>{lang user_remember}</span></label>
+		</dl>
+		<dl class="log_login">
+			<input type="submit" class="sub" value="登录" id="login_submit"><a href="{u user/forgetpassword}">{lang forget_password}</a>
+		</dl>
+            <input name="rhash" value="<!--{dynamic getRHash}-->" type="hidden"/>
+            <input name="refer" value="<!--{dynamic getUserRefer}-->" type="hidden"/>
+            <input name="action" value="ajax_login" type="hidden"/>
+        </form>
+		<div class="other_login">
+			<span>您也可以用以下方式登录：</span>
+			<a href="#" class="o_icon xl">新浪微博</a>
+			<a href="#" class="o_icon qq">QQ</a>
+			<a href="#" class="o_icon tb">淘宝网</a>
+			<a href="#" class="o_icon rr">人人网</a>
+			<a href="#" class="o_icon wy">网易微博</a>
+			<a href="#" class="o_icon tx">腾讯微博</a>
+			<a href="#" class="o_icon db">豆瓣</a>		
+		</div>
+	</div>
+</div>
+<div class="log_side fr">
+	<h2>{lang register}</h2>
+	<div class="log_box">
+		<span>还没加入男人派?</span>
+		<a href="{u user/register}">{lang reg_tip_1}</a>
+	</div>
+</div>
+</div>
+<!--{template inc/footer}-->

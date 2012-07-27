@@ -1,0 +1,129 @@
+<!--{template inc/header}-->
+
+<!--主体盒子开始-->
+<!--频道页面开始-->
+
+<div class="listmenu clearfix">
+    <?php
+        $g_i_cates = &$_FANWE['cache']['goods_category']['parent'];
+    ?>
+    <div class="hd clearfix">
+        <div class="nav_show"><a href="#"><b class="color">$cate_name</b>/$cate_code</a></div>
+        <div class="fl infor"><p>$desc</p></div>
+    </div>
+    <div class="bd_tags clearfix">
+        <ul class="tagshow">
+
+            <!--{eval $cindex = 1;}-->
+            <!--{loop $g_i_cates $g_i_cate_id}-->
+            <?php
+                $g_i_cate = &$_FANWE['cache']['goods_category']['all'][$g_i_cate_id];
+                $g_i_code = &$g_i_cate['cate_code'];
+            ?>
+            <li class="wd{$cindex}">
+                <a href='{u book/cate cate=$g_i_code}'><span class="t_tit">$g_i_cate['cate_name']</span></a>
+            </li>
+            <!--{eval $cindex++;}-->
+            <!--{/loop}-->
+
+        </ul>            
+    </div>
+</div>
+
+
+<div class="seco_box">
+    <!--{template inc/sortnav}-->
+    <div class="list_box clearfix" id="container">
+    	<!--{loop $share_list $share}-->
+        <div class="counbox" shareID="{$share['share_id']}" id="share_item_{$share['share_id']}">
+        	<!--{loop $share['imgs'] $share_img}-->
+			<!--{if $share_img['type'] == 'g'}-->
+            <div class="pic">
+                <a href="{$share_img['url']}" target="_blank"><img src="{getimg $share_img['img'] 210 999)}"></a>
+            </div>
+            <p class="words_msg"><a class="lef" href="{$share_img['url']}">{cutStr $share_img['name'] 16}</a><span class="rig">{$share_img['price_format']}</span></p>
+            <!--{else}-->
+            <div class="pic">
+                <a href="{$share_img['url']}" target="_blank"><img src="{getimg $share_img['img'] 210 999)}" ></a>
+            </div>
+            <!--{/if}-->
+			<!--{/loop}-->
+            <div class="favbox">
+                <a href="javascript:;" onclick="$.Fav_Share({$share['share_id']},this,32,'#share_item_{$share['share_id']}');" class="favaimg bh">赞</a>
+                <div class="favcountbox">
+                	<a target="_blank" href="{$share['url']}" class="fav_count">$share['collect_count']</a>
+                	<i></i>
+                </div>
+                <a href="#" class="linkurl">淘宝网</a>
+            </div>
+            <p class="confont"><a target="_blank" href="{$share['url']}">{cutstr $share['content'] 50}</a></p>
+            <div class="infor">
+                <a href="#" class="a1">同类筛选</a><a target="_blank" href="{$share['url']}" title="{$share['comment_count']}条评论">评论</a><a href="#">收藏</a>
+            </div>            
+        </div>
+        <!--{/loop}-->        
+    </div>
+</div>
+
+<!--分页开始-->
+<!--{subtemplate inc/pages}-->
+<!--分页结束-->
+<!--主体盒子结束-->
+
+<script type="text/javascript">
+FANWE.NO_COUNTER = true;
+var colHeight = 0;
+var colIndex = 0;
+var rowHtml = '<div class="i_w_f_f empty_row"><div class="hd"></div><div class="bd"></div><div class="ft"></div></div>';
+jQuery(function(){
+	<!--{dynamic getShareByUserClickShareID}-->
+	<!--{dynamic getManageDynamic args=book_index}-->
+	if($.browser.msie&&($.browser.version == "6.0")&&!$.support.style)
+	{
+		return ;
+	}
+	else{
+		$(".share_col").each(function(i){
+			$(this).append(rowHtml);
+		});
+		$(window).scroll(function(){
+			$(".share_col").each(function(i){
+				$('.empty_row .bd',this).height(0);
+				if($(this).height() > colHeight)
+				{
+					colIndex = i;
+					colHeight = $(this).height();
+				}
+			});
+			
+			$(".share_col").each(function(i){
+				if(i != colIndex)
+				{
+					$('.empty_row .bd',this).height(colHeight - $(this).height());
+				}
+			});
+		});
+	}
+});
+
+function ShowUserClickShare(result)
+{
+	if($("#share_item_" + result.share_id).length > 0)
+	{
+		var thisshare = $("#share_item_" + result.share_id);
+		var preshare = thisshare.prev();
+		var parentcol = thisshare.parent();
+		$(".col1").prepend(thisshare);
+		if(!parentcol.hasClass("col1") && $(".col1 .i_w_f").length > 1)
+		{
+			if(preshare.get(0))
+				preshare.after($(".col1 .i_w_f").eq(1));
+			else
+				parentcol.prepend($(".col1 .i_w_f").eq(1));
+		}
+	}
+	else
+		$(".col1").prepend(result.html);
+}
+</script>
+<!--{template inc/footer}-->

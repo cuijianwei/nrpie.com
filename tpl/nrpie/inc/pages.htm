@@ -1,0 +1,57 @@
+<!--{if $pager['page_count'] > 1}-->
+<ul class="fenye">
+	<li class="first"><a href="$pager[page_prev]" class="page_prev" page="$pager[prev_page]" style="text-indent:99999px;float:left;width:25px;height:25px;display:inline-block;">{lang page_prev}</a></li>
+	<!--{if $pager['page'] > 1}-->
+		<!--<li class="first"><a href="$pager[page_prev]" class="page_prev" page="$pager[prev_page]">{lang page_prev}</a></li>-->
+	<!--{/if}-->
+	<!--{loop $pager['page_nums'] $page_num}-->
+	<!--{if $pager['page'] == $page_num['name']}-->
+		<li class="hover">$page_num[name]</li>
+	<!--{elseif $page_num['name'] == '...'}-->
+		<li><i>...</i></li>
+	<!--{else}-->
+		<li><a href="$page_num[url]" page="$page_num[name]">$page_num[name]</a></li>
+	<!--{/if}-->
+	<!--{/loop}-->
+	<!--{if $pager['page'] < $pager['page_count']}-->
+		<!--<li class="last"><a href="$pager[page_next]" class="page_next" page="$pager[next_page]">{lang page_next}</a></li>-->
+	<!--{/if}-->
+	<li class="last"><a href="$pager[page_next]" class="page_next" page="$pager[next_page]" style="text-indent:99999px;float;left;width:25px;height:25px;display:inline-block">{lang page_next}</a></li>
+	<!--
+		<li class="yeshu">跳至
+				<input type="text" name="">
+				页</li>
+		<li class="qding"><a href="javascript:;" onclick='self.location.href="$page_num[url]"'>确定</a></li>
+	-->
+</ul>
+<div id="fenye" style="display:none;">
+		<ul class="fenye_con fenye_detail">
+			<li class="first"><a href="$pager[page_prev]" class="page_prev" page="$pager[prev_page]">{lang page_prev}</a></li>
+			<!--{if $pager['page'] > 1}-->
+				<!--<li class="first"><a href="$pager[page_prev]" class="page_prev" page="$pager[prev_page]">{lang page_prev}</a></li>-->
+			<!--{/if}-->
+			<!--{loop $pager['page_nums'] $page_num}-->
+			<!--{if $pager['page'] == $page_num['name']}-->
+				<li class="on">$page_num[name]</li>
+			<!--{elseif $page_num['name'] == '...'}-->
+				<li><i>...</i></li>
+			<!--{else}-->
+				<li><a href="$page_num[url]" page="$page_num[name]">$page_num[name]</a></li>
+			<!--{/if}-->
+			<!--{/loop}-->
+			<!--{if $pager['page'] < $pager['page_count']}-->
+				<!--<li class="last"><a href="$pager[page_next]" class="page_next" page="$pager[next_page]">{lang page_next}</a></li>-->
+			<!--{/if}-->
+			<li class="last"><a href="$pager[page_next]" class="page_next" page="$pager[next_page]">{lang page_next}</a></li>
+			<!--
+				<li class="yeshu">跳至
+						<input type="text" name="">
+						页</li>
+				<li class="qding"><a href="javascript:;" onclick='self.location.href="$page_num[url]"'>确定</a></li>
+			-->
+		</ul>
+</div>
+<script>
+
+</script>
+<!--{/if}-->

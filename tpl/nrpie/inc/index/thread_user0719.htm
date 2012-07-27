@@ -1,0 +1,19 @@
+<ul class="tab_p">
+<li>话题</li>
+<li>公告</li>
+</ul>
+<div class="tab_con">
+<dl class="tab_dl">
+<dt><a href="{u u/index uid=$thread_user[0]['uid']}" target="_blank"><img src="{avatar $thread_user[0]['uid'] ms $_FANWE['user']['server_code'] 1}"></a><span class="name">{$thread_user[0]['user_name']}</span><a onclick="$.User_Follow($thread_user[0]['uid'],this);" href="javascript:;" class="guanz"></a></dt>
+<dd><!-- <span class="time">{$thread_user[0]['time']}</span> --><span class="con">{$thread_user[0]['content_t']}</span> <span class="fans">粉丝<em>121</em>派</span> </dd>
+</dl>
+<dl class="tab_dl2">
+<ul>
+<!--{loop $thread_user $key $thread}-->
+<!--{if $key!=0}-->
+<li><a href="{$thread['url']}" target="_blank">{$thread['title_t']}</a></li>
+<!--{/if}-->
+<!--{/loop}-->
+</ul>
+</dl>
+</div>

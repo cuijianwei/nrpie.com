@@ -1,0 +1,169 @@
+<!--{if $cate_list}-->
+
+<!--{loop $cate_list $citem}-->
+
+{if $citem['share_list']}
+
+<div class="yifu">
+
+<div class="yifu_bd">
+
+<h1 class="yahei">{$citem['short_name']}</h1>
+
+<div class="count"><span class="lef"></span><span class="con">为您精心挑选 <a href="#">{$citem['share_count']}</a> 件</span><span class="rig"></span></div>
+
+<div class="sort"> <a href="#">花笙记</a> / <a href="#">马克华菲</a> / <a href="#">G2000</a> / <a href="#">LEE</a> / <a href="#">美邦</a> / <a href="#">杰克琼斯</a> / <a href="#">select</a> / <a href="#">七匹狼</a> / <a href="#">劲霸</a></div>
+
+</div>
+
+<div class="yifu_hd">
+
+<div class="main_box clearfix">
+
+<!--{eval $tag_index = 1;}-->
+
+<!--{loop $citem['share_list'] $share}-->
+
+{eval $img_w=158;}
+
+{eval $img_h=160;}
+
+<div class="box_detail"> <a href="{if $share['imgs'][0]['url']}{$share['imgs'][0]['url']}{else}{$share['url']}{/if}" class="ig">
+
+{eval $index_img = $share['index_img'];}
+
+{if $index_img}
+
+<img class="img" src="{getimg $index_img $img_w $img_h 1}" />
+
+{else}
+
+<img class="img" src="{getimg $share['imgs'][0]['img'] $img_w $img_h 1}" />
+
+{/if}
+
+</a>
+
+<div class="con_text">{$share['title']}</div>
+
+</div>
+
+<!--{if $tag_index > 5}-->
+
+<!--{eval break;}-->
+
+<!--{/if}-->
+
+<!--{eval $tag_index++;}-->
+
+<!--{/loop}-->
+
+</div>
+
+<div class="sort">
+
+<!--{eval $tag_index = 1;}-->
+
+<!--{loop $citem['child'] $category}-->
+
+<!--{if $citem['short_name']=='美妆'}-->
+
+<dl class="con {if $tag_index==1}yp{elseif $tag_index==4}small{/if}">
+
+<dt class="pf"><a href="#" class="sort_buttbig">{$category['name']}</a></dt>
+
+<dd><!--{loop $category['tagArr'] $tag}--><a href="#" {if $tag['is_hot']}class="sort_focus"{/if}>{$tag['tag_name']}</a><!--{/loop}--></dd>
+
+</dl>
+
+<!--{if $tag_index > 3}-->
+
+<!--{eval break;}-->
+
+<!--{/if}-->
+
+<!--{else}-->
+
+<dl class="con {if $tag_index==1}xy{elseif $tag_index==2}xt{else}lx{/if}">
+
+<dt class="pf"><a class="sort_buttsmal" href="#">{$category['name']}</a></dt>
+
+<dd><!--{loop $category['tagArr'] $tag}--><a href="#" {if $tag['is_hot']}class="sort_focus"{/if}>{$tag['tag_name']}</a><!--{/loop}--></dd>
+
+</dl>
+
+<!--{if $tag_index > 2}-->
+
+<!--{eval break;}-->
+
+<!--{/if}-->
+
+<!--{/if}-->
+
+<!--{eval $tag_index++;}-->
+
+<!--{/loop}-->
+
+</div>
+
+</div>
+
+</div>
+
+{/if}
+
+	<!--{/loop}-->
+
+	<script>
+
+	function CateUpdateUserFollow(obj,result)
+
+	{
+
+		if(result.status == 1)
+
+		{
+
+			$(obj).before('<img src="./tpl/images/flow_ok.gif" />');
+
+			$(obj).remove();
+
+		}
+
+		else{
+
+			$(obj).before('<img src="./tpl/images/to_flow.gif" />');
+
+			$(obj).remove();
+
+		}
+
+	}
+
+	
+
+	jQuery(function(){
+
+			$('.cate_share_box li').hover(function(){
+
+				$(this).children('.trsp_bg').stop().animate( { height: "80px" }, 300 );
+
+				$(this).children('.trsp_bg').find('h4 .f12').stop().animate({ fontSize: "18px" }, 50);
+
+			},
+
+			function(){
+
+				$(this).children('.trsp_bg').stop().animate( { height: "30px" }, 300 );
+
+				$(this).children('.trsp_bg').find('h4 .f12').stop().animate({ fontSize: "12px" }, 50);
+
+			});
+
+	});
+
+		
+
+	</script>
+
+<!--{/if}-->

@@ -1,0 +1,103 @@
+<?php
+	$css_list[0]['url'] = './tpl/css/usercenter.css';
+	$js_list[0] = './tpl/js/public.js';
+?>
+<!--{template inc/header}-->
+<div id="register_wrap" class="clearfix">
+<div class="reg_hd">
+<h1>{lang reg_tip_1}</h1>
+<p class="regtips"><em class="bh lft">ico</em><span class="fl"><cite class="fsize14">注册后您可以:</cite><b>1</b>第一时间掌握风尚信息！<b>2</b>部分商品优惠返利!<b>3</b>分享、晒货、发布信息<b>4</b>关注同趣好友交流心得<b>5</b>欢迎女生入住！</span><em class="bh rit">ico</em></p>
+</div>
+<div class="reg_con fl">
+    <form action="{u user/ajax_register}" method="post" id="registerForm">
+	<div class="reg_from fl">
+		<dl class="nr_mail clearfix">
+			<dt>E-mail：</dt>
+			<dd><div class="intxtbg int_w1"><em class="int_rit"></em><input  name="email" id="reg_email" type="text" class="int"  value="" istip="0" rel=".nrerr_mail" check="0"/></div></dd>
+		</dl>
+		<dl class="nr_ulike clearfix">
+			<dt>{lang nickname}：</dt>
+			<dd>
+        		<div class="intxtbg int_w1"><em class="int_rit"></em><input name="user_name" id="reg_user_name" type="text"  id="reg_user_name" class="int" value="" istip="0" rel=".nrerr_ulike" check="0"/></div>
+        	</dd>
+		</dl>
+		<dl class="nr_sex clearfix">
+			<dt>{lang gender}：</dt>
+			<dd class="sexb">
+				<input type="radio" name="gender" class="ck" checked="checked" value="1" name="sex">{lang user/gender_1}<input type="radio" class="ck" value="0" name="gender" style="margin-left:10px">{lang user/gender_0}
+			</dd>
+		</dl>		
+		<dl class="nr_password clearfix">
+			<dt>{lang password}：</dt>
+            <dd><div class="intxtbg int_w1"><em class="int_rit"></em><input name="password" id="reg_password" type="password" id="reg_password" class="int" istip="0" rel=".nrerr_password" check="0"/></div></dd>			
+		</dl>
+		<dl class="nr_repassword clearfix">
+			<dt>{lang cpassword}：</dt>
+            <dd><div class="intxtbg int_w1"><em class="int_rit"></em><input name="confirm_password" id="reg_cpassword" type="password"  class="int" istip="0" rel=".nrerr_repassword" check="0" /></div></dd>
+		</dl>
+		<dl class="nr_check clearfix">
+			<dt>{lang checkcode}：</dt>
+			<dd><input type="text" class="check" maxlength="10" name="checkcode"></dd>
+			<dd> <img id="img_checkcode" alt="验证码" src="{$_FANWE['site_root']}misc.php?action=verify&rhash=<!--{dynamic getRHash}-->">
+				 <a id="checkcode_change" href="javascript:void(0);">换一张</a></dd>
+		</dl>
+		<dl class="nr_box clearfix">
+			<input type="checkbox" name="agreement" id="reg_agreement" checked="checked" class="chk fl" value="1">
+			<div class="fl" style="width:250px;display:inline">{sprintf reg_tip_3 $agreement_url,$_FANWE['setting']['site_name']}</div>
+		</dl>
+		<dl class="nr_sub" style="height:40px">
+                   <input name="rhash" id="regRHash" value="<!--{dynamic getRHash}-->" type="hidden"/>
+                    <input name="refer" value="{u u/index}" type="hidden"/>
+                    <input name="action" value="ajax_register" type="hidden"/>
+		  <input type="submit" value="注册" class="sub" id="reg_submit">
+		</dl>
+	</div>
+    </form>
+	<div class="reg_error fr">	
+		<div class="nrerr_mail">
+			请填写正确的常用邮箱，以便找回密码。比如：example@example.com			
+		</div>
+		<!--<div class="nrerr_mail">
+			<b class="errimgno"></b>
+			<span class="span_err">请填写邮件地址</span>
+		</div>-->	
+		<!--<div class="nrerr_ulike">
+			支持中文，不能以数字开头，最多20个字符，中文算两个字符。
+		</div>-->
+		<div class="nrerr_ulike">
+			<b class="errimgno"></b>
+			<span class="span_err">请填写昵称</span>
+		</div>
+		<!--<div class="nrerr_password">
+			6-20个字母、数字或者符号
+		</div>-->
+		<div class="nrerr_password">
+			<b class="errimgok"></b>
+		</div>
+		<div class="nrerr_repassword">
+		</div>
+		<div class="nrerr_check">
+			请输入图片中的字符
+		</div>
+    
+	</div>
+</div>
+<div class="reg_side fr">
+	<div class="reg_login">
+		<span>{sprintf reg_tip_4 $_FANWE['setting']['site_name']}</span>
+		<a href="{u user/login}">{lang login}</a>
+	</div>
+	<div class="other_login">
+		<span>{lang other_login}：</span>
+		<a href="#" class="o_icon xl">新浪微博</a>
+		<a href="#" class="o_icon qq">QQ</a>
+		<a href="#" class="o_icon tb">淘宝网</a>
+		<a href="#" class="o_icon rr">人人网</a>
+		<a href="#" class="o_icon wy">网易微博</a>
+		<a href="#" class="o_icon tx">腾讯微博</a>
+		<a href="#" class="o_icon db">豆瓣</a>		
+	</div>
+</div>
+
+</div>
+<!--{template inc/footer}-->

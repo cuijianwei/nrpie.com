@@ -1,0 +1,226 @@
+<?php
+	//$css_list[0]['url'][] = './tpl/css/tweetlist.css';
+	//$css_list[0]['url'][] = './tpl/css/topic.css';
+	//$css_list[0]['url'][] = './tpl/css/main.css';
+?>
+<!--{template inc/header}-->
+<!--主体盒子开始-->
+<div class="mainBox clearfix">
+		<div class="topic_lef clearfix">
+				<div class="topic_leftop">
+					<a href="{u club/forum fid=$root_forum['fid']}" class="all{if $is_root} on{/if}">全部话题</a>
+					<a href="{u club/best fid=$forum['fid']}" class="remen{if $is_best} on{/if}">热门话题</a>
+					<a class="tiwen bh" href="{u club/newtopic fid=$forum_id}">我要提问</a>
+					<a href="{u club/newtopic fid=$forum_id}" class="xintie bh">发新贴</a> 
+				</div>
+				<div class="topic_lefcon">
+					<div class="gr_detail">
+						<h1>{$topic['title']}</h1>
+						<div class="seiren_info">
+							<!--{getuser $topic['uid'] 0 'm,48' ',u_name fl'}-->
+							<!-- {if $topic['uid'] == $_FANWE['uid']} -->
+							<a href="{u club/modifytopic tid=$topic['tid']}">修改话题</a>|<a href="{u club/deltopic tid=$topic['tid']}" onclick="return confirm('是否删除该话题?');">删除</a>
+							<!-- {else} -->
+							
+							<!-- {/if} -->
+							<!-- <a class="avatar fl" href="/cover/u/14ifs2" target="_balnk"><img class="pic r3" src="http://s6.mogujie.cn/b7/avatar/120428/297v9_kqyxan2zozbg22dwgfjeg5sckzsew_600x800.jpg_100x100.jpg"></a> -->
+							<!--{getuser $topic['uid'] 1 '' 'u_name icard'}--><p class="create">{lang create_yu}：{$topic['time']}  {lang thread_starter}</p>
+						</div>
+						<pre class="detail_intro">{$topic['content']}</pre>
+						<div class="pics">
+							<!--{loop $topic['share']['imgs'] $img}-->
+							<!--{if $img['type'] == 'm'}-->
+							<div class="SHOW_BIG_PIC r3 img" w="tpc">
+								<a class="add_to_album_btn" href="javascript:;" style="display: none;" onclick="$.Show_Rel_Album($img['id'],'photo');"></a>
+								<div class="tlc">
+									<a href="{$img['img']}" target="_blank" ref="nofollow"><img  src="{getimg $img['img'] 468 468}"></a>
+								</div>
+							</div>
+							<!--{else}-->
+							<div class="r3 g img" w="tpc">
+								<a class="add_to_album_btn" href="javascript:;" style="display: none;" onclick="$.Show_Rel_Album($img['id'],'goods');"></a>
+								<div class="tlc">
+									<a href="{$img['to_url']}" target="_blank"/><img src='{getimg $img['img'] 468 468}' style="width:468px;" alt="{$img['name']}" /></a>
+								</div>
+								<div class="pic_b_hd">
+									<div class="pic_b_hd">
+										<a class="mg_slink ofh" href="{$img['to_url']}" c="" s="" target="_blank" ref="nofollow">{cutstr $img['name'] 30}</a>
+										<div class="g_p"><span>{echo priceFormat($img['price'])}</span></div>
+										<a href="{$img['to_url']}" class="buy_it" target="_blank"/></a>
+									</div>
+								</div>
+							</div>
+							<!--{/if}-->
+							<!--{/loop}-->
+							<br class="clear">
+						</div>
+						
+						<div class="wb_infobar">
+							<a href="javascript:void(0);" class="fw " onclick="$('.TOPIC_RELAY').toggle();"></a> 
+							<!--<a w="tpk" href="javascript:;" class="share fr">{lang share}</a> -->
+							<a w="tpk" href="javascript:;" class="fav" onclick="$.Fav_Share({$topic['share_id']},this,32,'#topitter_{$topic['share_id']}');"></a>
+							<div class="favDiv"><span class="favCount SHARE_FAV_COUNT">{$topic['share']['relay_count']}</span><i></i></div>
+						</div>
+						<div class="TOPIC_RELAY cf_b" style="display:none;">
+							<form>
+							<img class="cf_a" src="./tpl/images/commnet_arrow.png">
+							<div class="cf_pub_b r5">
+								<a href="javascript:;" onclick="$.Show_Expression(this);" class="fl"><img w="f" class="add_face fl" src="./tpl/images/add_face_c.png"></a>
+								<textarea class="PUB_TXT pub_txt fl rl3" name="content" position="0"></textarea>
+								<input type="button" class="pub_btn fl rr3" value="{lang share_relay}"  onclick="$.Add_Share_Relay(this)">
+								<div class="cf_opt">
+									<input type="checkbox" class="c_cb" name="is_comment_parent" value="1" checked="checked">
+                                                                        <label for="c_cb">{lang also_one_comment}</label>
+								</div>
+								<input type="hidden" name="share_id" value="{$topic['share_id']}" />
+							</div>
+							</form>
+						</div>
+						<ul class="SHARE_FAV_LIST u_like">
+							<!--{loop $user_share_collect $collect_uid}-->
+							<li><!--{getuser $collect_uid 0 's,32' ',icard r3'}--></li>
+							<!--{/loop}-->
+						</ul>
+						<br>
+						<!-- “喜欢”模版Start-->
+						<div class="fav_toolbar clearfix">
+       						<!-- <a href="javascript:;" tid="13o3mwc" w="tpk" class="add_fav fav"></a> -->							<!--
+							<div class="favDiv">
+								<span class="favCount">121</span><i></i>
+							</div>								-->
+       						 <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" style="float:right;" data="{'text':'我刚刚分享了 @ 王大琪 在［@蘑菇街 小组] 发表的主题《五款BB霜对比，推荐！ 》', 'pic':'http://s6.mogujie.cn/b7/pic/120428/297v9_kqytsmszozbfqtdwgfjeg5sckzsew_706x588.jpg_468x468.jpg' }">
+								<span class="bds_more"></span>
+								<a class="bds_tsina" title="分享到新浪微博"></a>
+								<a class="bds_qzone" title="分享到QQ空间"></a>
+								<a class="bds_tqq" title="分享到腾讯微博"></a>
+								<a class="bds_renren" title="分享到人人网"></a>
+							</div>
+						</div>
+						<!-- “喜欢”模版End-->
+						<?php
+							$post_topic_tid = $topic['tid'];
+							$post_topic_module = 'topic';
+							$post_topic_action = 'post';
+						?>
+						<!--模版の分页开始   可将分页和信息展示拆分开来，或者在合并页面上边添加一行分页-->
+						<div class="pub_toolbar r5" tid="1bkv0">
+							<a class="pub_btn fr no_group" href="javascript:;" onclick="document.getElementById('publish_topic_content').focus();"></a>
+       	 					<!-- <a class="reco_btn" href="javascript:;"></a> -->
+							<!--{subtemplate inc/pages}--> 
+						</div>
+						<!--模版の分页结束-->
+					</div>			
+					<div id="detail_body">
+						<ul class="t_l">
+						<div id="topic_discussion_list" class="piece2_bd">
+							<!-- 微博列表 -->
+							{$post_html}
+							<!-- 分页包含在列表里  -->						
+							<!-- 发表回应 -->
+							<!--{template inc/share/topic_publish}-->
+						</div>
+						</ul>
+					</div>
+				</div>
+		</div>
+		<div class="topic_rig clearfix">
+				<div class="topic_words">
+						<p class="title">话题关键词</p>
+						<div class="con"><a href="#">吐槽</a> <a href="#">文艺青年</a> <a href="#">日和</a> <a href="#">蕾丝<a href="#"> 留胡子</a> <a href="#"> 非诚勿扰</a> <a href="#"> 郭德纲</a> <a href="#"> 车展</a><a href="#"> 健身</a> <a href="#"> 意大利</a> <a href="#"> 巴黎</a> <a href="#">北漂</a> <a href="#">2012</a> <a href="#">姑娘</a> <a href="#"> 剩女 </a> <a href="#"> 三弟铁达尼号</a> <a href="#"> 汽车</a> <a href="#">单反</a> <a href="#"> 约会</a></div>
+				</div>
+				<div class="topic_style topic_words">
+						<p class="title">风尚掌门人</p>
+						<div class="cona ">
+								<table width="234" border="0" cellpadding="0" cellspacing="0">
+										<tr>
+												<td width="63" height="64" rowspan="2"><a href="#" class="toux"><img src="../tpl/pink3/images/test4.png"></a></td>
+												<td width="55" height="26" valign="bottom"><span class="name">风向标</span></td>
+												<td width="116" rowspan="2"><span class="top1"></span></td>
+										</tr>
+										<tr>
+												<td valign="middle"><a href="#" class="guanz"></a></td>
+										</tr>
+										<tr>
+												<td height="22" colspan="2"><span class="lefd">收获了<span class="fen">678989</span>个赞</span></td>
+												<td align="right"><span class="rigd"><a href="#" class="fen">456</a> 个晒货</span></td>
+										</tr>
+								</table>
+								<table width="234" border="0" cellpadding="0" cellspacing="0">
+										<tr>
+												<td width="63" height="64" rowspan="2"><a href="#" class="toux"><img src="../tpl/pink3/images/test4.png"></a></td>
+												<td width="55" height="26" valign="bottom"><span class="name">风向标</span></td>
+												<td width="116" rowspan="2"><span class="top2"></span></td>
+										</tr>
+										<tr>
+												<td valign="middle"><a href="#" class="guanz"></a></td>
+										</tr>
+										<tr>
+												<td height="22" colspan="2"><span class="lefd">收获了<span class="fen">678989</span>个赞</span></td>
+												<td align="right"><span class="rigd"><a href="#" class="fen">456</a> 个晒货</span></td>
+										</tr>
+								</table>
+								<table width="234" border="0" cellpadding="0" cellspacing="0">
+										<tr>
+												<td width="63" height="64" rowspan="2"><a href="#" class="toux"><img src="../tpl/pink3/images/test4.png"></a></td>
+												<td width="55" height="26" valign="bottom"><span class="name">风向标</span></td>
+												<td width="116" rowspan="2"><span class="top3"></span></td>
+										</tr>
+										<tr>
+												<td valign="middle"><a href="#" class="guanz"></a></td>
+										</tr>
+										<tr>
+												<td height="22" colspan="2"><span class="lefd">收获了<span class="fen">678989</span>个赞</span></td>
+												<td align="right"><span class="rigd"><a href="#" class="fen">456</a> 个晒货</span></td>
+										</tr>
+								</table>
+								<table width="234" border="0" cellpadding="0" cellspacing="0">
+										<tr>
+												<td width="63" height="64" rowspan="2"><a href="#" class="toux"><img src="../tpl/pink3/images/test4.png"></a></td>
+												<td width="55" height="26" valign="bottom"><span class="name">风向标</span></td>
+												<td width="116" rowspan="2"><span class=""></span></td>
+										</tr>
+										<tr>
+												<td valign="middle"><a href="#" class="guanz"></a></td>
+										</tr>
+										<tr>
+												<td height="22" colspan="2"><span class="lefd">收获了<span class="fen">678989</span>个赞</span></td>
+												<td align="right"><span class="rigd"><a href="#" class="fen">456</a> 个晒货</span></td>
+										</tr>
+								</table>
+								<table width="234" border="0" cellpadding="0" cellspacing="0" class="on">
+										<tr>
+												<td width="63" height="64" rowspan="2"><a href="#" class="toux"><img src="../tpl/pink3/images/test4.png"></a></td>
+												<td width="55" height="26" valign="bottom"><span class="name">风向标</span></td>
+												<td width="116" rowspan="2"><span class=""></span></td>
+										</tr>
+										<tr>
+												<td valign="middle"><a href="#" class="guanz"></a></td>
+										</tr>
+										<tr>
+												<td height="22" colspan="2"><span class="lefd">收获了<span class="fen">678989</span>个赞</span></td>
+												<td align="right"><span class="rigd"><a href="#" class="fen">456</a> 个晒货</span></td>
+										</tr>
+								</table>
+						</div>
+				</div>
+		</div>
+</div>
+<div class="clear" style=" clear:both"></div>
+<!--主体盒子结束-->
+
+<script type="text/javascript">
+jQuery(function($){
+<!--{if getIsManage('club')}-->
+	$('#content .piece2:first').hover(function(e){
+		$.GetManageMenu('club',{$id},this,e);
+	},function(){});
+	
+	$('#SHARE_DETAIL_LiST .t_f').live('mouseover',function(e){
+		var shareID = this.getAttribute('shareID');
+		if(shareID)
+			$.GetManageMenu('share',shareID,this,e);
+	});
+<!--{/if}-->
+});
+</script>
+<!--{template inc/footer}-->

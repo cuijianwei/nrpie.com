@@ -1,0 +1,218 @@
+<?php
+$_FANWE['CACHE_CSS_SCRIPT_PHP'] = array (
+  'script' => 
+  array (
+    0 => 
+    array (
+      0 => './public/js/jquery.js',
+      1 => './public/js/base.js',
+      2 => './public/js/jquery.easing.js',
+      3 => './public/js/jquery.lazyload.js',
+      4 => './public/js/main.js',
+      5 => './public/js/main_con.js',
+    ),
+    1 => 
+    array (
+      0 => './public/js/lang.js',
+      1 => './public/js/setting.js',
+      2 => './public/js/jquery.bgiframe.js',
+      3 => './public/js/jquery.weebox.js',
+      4 => './public/js/ajaxfileupload.js',
+      5 => './public/js/jquery.dragsort.js',
+      6 => './public/js/swfobject.js',
+    ),
+    2 => './tpl/js/loginreg.js',
+  ),
+  'css' => 
+  array (
+    0 => 
+    array (
+      0 => './tpl/css/usercenter.css',
+      1 => './tpl/css/main.css',
+    ),
+    1 => './tpl/css/loginreg.css',
+  ),
+);
+?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>男人派购物分享社区 - FANWE</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta name="keywords" content="方维,方维购物分享,网购,淘宝网购物,淘宝网导购" />
+<meta name="description" content="方维购物分享是一个纯买家社区，百万网友一起淘宝网购物，挖掘好店、分享网购，您可以获得最可靠的店铺排行和淘宝网购物分享。" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<script src="./public/data/tpl/js/ed82e928a5b1ea8d7c137dbe4d8415bf.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="./public/data/tpl/css/994051df942774913bb053331c956f5b.css" media="all"/><link rel="stylesheet" type="text/css" href="./tpl/css/loginreg.css" />
+<script type="text/javascript">
+var SITE_PATH = '/';
+var SITE_URL = 'http://www.nrpie.com/';
+var TPL_PATH = '/tpl/nrpie/';
+var PUBLIC_PATH	 = '/public/';
+var MODULE_NAME	 = 'User';
+var ACTION_NAME	 = 'login';
+var COOKIE_PRE = "7v7B_2132_";
+</script>
+</head>
+<body>
+
+<div id="header">
+<div class="top">
+<div class="logo"></div>
+<div class="rig">
+<p class="con">您好，欢迎来到男人派！<a href="#" id="jia">收藏此网站</a><a href="#">分享</a></p>
+<div class="searchbox">
+<form id="soso_form" method="get" action="/book.php?action=search">
+<input type="text" id="queryString" value="" tooltip="请输入关键字" name="tag">
+                        <input type="submit" value="" id="search" class="btn" />
+<input type="hidden" name="action" value="search" />
+</form>	
+</div>	
+</div>
+</div>
+<div class="nav">
+<ul class="nav_ul">
+<li class="nav_ulli "><a href="/index.php?action=index">首页</a><em></em></li>
+                                                <li class="nav_ulli "><a href="/book.php?action=shopping">逛街啦！</a><em></em></li>
+                                                            <li class="nav_ulli ">
+                	<a href='/book.php?action=cate&cate=coats'>上装</a>
+                    <em></em>
+                </li>
+                                                <li class="nav_ulli ">
+                	<a href='/book.php?action=cate&cate=pants'>下装</a>
+                    <em></em>
+                </li>
+                                                <li class="nav_ulli ">
+                	<a href='/book.php?action=cate&cate=shoes'>鞋子</a>
+                    <em></em>
+                </li>
+                                                <li class="nav_ulli ">
+                	<a href='/book.php?action=cate&cate=bags'>包包</a>
+                    <em></em>
+                </li>
+                                                <li class="nav_ulli ">
+                	<a href='/book.php?action=cate&cate=accessories'>配饰</a>
+                    <em></em>
+                </li>
+                                                <li class="nav_ulli ">
+                	<a href='/book.php?action=cate&cate=beauties'>美妆</a>
+                    <em></em>
+                </li>
+                                                <li class="nav_ulli ">
+                	<a href='/book.php?action=cate&cate=home'>家居</a>
+                    <em></em>
+                </li>
+                <li class="sml_nav nav_engag"><a href=""#>约会帮帮忙</a></li>
+<li class="sml_nav"><a href=""#>话题</a></li>
+<li class="sml_nav"><a href=""#>品牌</a></li>
+</ul>
+            <!--dynamic getUserInfo--></div>
+</div><div id="body" class="fm960">
+<div class="piece1">
+<div class="piece1_hd"></div>
+<div class="piece1_bd clearfix">
+<div id="content" style="width:960px;">
+<div class="lg_left">
+<h1>登陆男人派</h1>
+<div class="lg_form">
+<form id="loginForm" name="loginForm" action="/user.php?action=ajax_login" method="post">
+<div class="lg_name">
+<span>用户名：</span>
+<input type="text" value="" tooltip="邮箱 或 昵称" name="email_name" class="text" maxlength="32" />
+</div>
+<div class="err_name"><span></span></div>
+<div class="clear"></div>
+<div class="lg_pass">
+<span>密　码：</span>
+<input type="password" value="" name="pass" class="text" maxlength="32" />
+</div>
+<div class="err_pass"><span></span></div>
+<div class="clear"></div>
+<div class="iserror" id="iserror">
+<div class="war"><img src="./tpl/images/error_02.png"><span>登录名或密码错误</span></div>
+<div class="content">
+<pre>1、如果登录名是邮箱地址，请输入全称<br/> 如：share@qq.com<br/>2、请检查登录名大小写是否正确。<br/>3、请检查密码大小写是否正确。</pre>
+</div>
+</div>
+<div class="iserror iserror2" id="iserror2">
+<div class="war"><img src="./tpl/images/error_02.png"><span>用户被锁定，无法登录！</span></div>
+<div class="content">
+<pre>1.可以联系管理员进行解锁。<br/>2.重新注册一个账户！</pre>
+</div>
+</div>
+<div class="lg_remember">
+<label>
+<input type="checkbox" name="remember" class="checkbox" checked="checked" value="1209600">
+<span>记住我（两周免登陆）</span>
+</label>
+</div>
+<div class="lg_login">
+<input type="submit" value=" " class="sub" id="login_submit" />
+<a href="/user.php?action=forgetpassword">忘记密码？</a>
+</div>
+<div class="clear"></div>
+<div class="lg_login_loading">
+<span>登陆中，请稍候...</span>
+</div>
+<input name="rhash" value="<!--dynamic getRHash-->" type="hidden"/>
+<input name="refer" value="<!--dynamic getUserRefer-->" type="hidden"/>
+<input name="action" value="ajax_login" type="hidden"/>
+</form>
+<div class="ot_login">
+<span>您也可以用以下方式登录：</span>
+<div class="ot_btn"></div>
+</div>
+</div>
+</div>
+<div class="lg_right">
+<h1>注册</h1>
+<span>还没有男人派帐号？</span>
+<a href="/user.php?action=register"></a>
+</div>
+</div>
+</div>
+<div class="piece1_ft"></div>
+</div>
+</div>    <div id="footer" class="">
+<div class="foot_nav">
+<ul>
+<li ><a href="/index.php?action=index">首页</a></li>
+            
+                                    <li ><a href="/book.php?action=shopping">逛街啦！</a></li>
+                                                <li >
+                <a href='/book.php?action=cate&cate=coats'>上装</a>
+            </li>
+                                    <li >
+                <a href='/book.php?action=cate&cate=pants'>下装</a>
+            </li>
+                                    <li >
+                <a href='/book.php?action=cate&cate=shoes'>鞋子</a>
+            </li>
+                                    <li >
+                <a href='/book.php?action=cate&cate=bags'>包包</a>
+            </li>
+                                    <li >
+                <a href='/book.php?action=cate&cate=accessories'>配饰</a>
+            </li>
+                                    <li >
+                <a href='/book.php?action=cate&cate=beauties'>美妆</a>
+            </li>
+                                    <li >
+                <a href='/book.php?action=cate&cate=home'>家居</a>
+            </li>
+            <li><a href="#">品牌</a></li>
+<li><a href="#">用户帮助</a></li>
+</ul>
+</div>
+<div class="foot_nav2"><a href="#">关于我们</a>  <a href="#"> 联系我们</a> <a href="#">  广告投放</a>  <a href="#"> 给我们留言 </a><a href="#">  新手指南</a>  <a href="#"> 隐私政策</a><a href="">男人派</a><a href="">版权所有© 京ICP备12008301号</a></div>
+<div class="foot_log bh">男人派</div>
+</div>
+
+</body>
+<script src="./public/data/tpl/js/7341df8d07830303a450eecdc7b8f857.js" type="text/javascript" defer="true"></script><script src="./tpl/js/loginreg.js" type="text/javascript"></script>
+<!--dynamic getScript--><script type="text/javascript">
+jQuery(function($){
+$(".lazyload").lazyload({"placeholder":"./tpl/images/lazyload.gif"});
+});
+</script>
+</html>

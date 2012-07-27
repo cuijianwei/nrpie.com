@@ -1,0 +1,113 @@
+<div class="ul_bd clearfix r5 PIC_BOX">
+
+<form name="save" enctype="multipart/form-data" class="pub_new_form" method="POST" action="/upload/addpic">
+
+<div class="pub_edit clearfix">
+
+<ul class="up_img PUB_IMG">
+
+<li class="UPLOAD_FILE">   
+
+<div class="bo2 r3">
+
+<div class="default">  
+
+<input type="hidden" value="3" name="tab"><input type="file" tab="3" hidefocus="true" name="image" class="add_file PUB_PIC_FILE"><a href="javascript:;" class="pub_another_pic r3">上传一张</a>
+
+</div>
+
+</div>   
+
+</li>				
+
+</ul>                       
+
+<div class="pub_area_right r5">
+
+<div><span>请选择晒货类型:</span>
+
+<p class="c_s_type">
+
+<input type="radio" value="衣服" name="c_type">
+
+<label for="">衣服</label>
+
+<input type="radio" value="鞋子" name="c_type">
+
+<label for="">鞋子</label>
+
+<input type="radio" value="数码" name="c_type">
+
+<label for="">数码</label>
+
+<input type="radio" value="护肤" name="c_type">
+
+<label for="">护肤</label>
+
+<input type="radio" value="配饰" name="c_type">
+
+<label for="">配饰</label>
+
+<input type="radio" value="约会照片" name="c_type">
+
+<label for="">约会照片</label>
+
+<input type="radio" value="其它" name="c_type">                    
+
+<label for="">其它</label>
+
+</p>
+
+</div>
+
+<div class="div_txt">
+
+<textarea class="PUB_TXT pub_txt empty" name="content" tooltip="简单介绍下这件宝贝吧~" position="0" length="140">简单介绍下这件宝贝吧~</textarea>
+
+</div>
+
+<div style="margin-bottom:10px" class="pub_opt clearfix"><a onclick="$.Show_Expression(this)" href="javascript:;" class="bq">表情</a></div>
+
+<ul class="finish_info">
+
+<li class="clearfix">
+
+<i class="i_link"></i>
+
+<input type="text" value="求链接、求地址" class="f_i_link GOODS_URL empty" tooltip="求链接、求地址" name="link">
+
+输入购买链接或实体店地址</li>
+
+<li class="clearfix">
+
+<i class="i_brand"></i>
+
+<input type="text" value="什么牌子的" class="f_i_brand empty" name="brand" tooltip="什么牌子的">
+
+如：ZARA、HM</li>
+
+<li class="clearfix">
+
+<i class="i_price"></i>
+
+<input type="text" value="价格" class="f_i_price empty" name="price" tooltip="价格">
+
+元</li>
+
+</ul>
+
+<div class="pub_btn">
+
+<input type="hidden" value="share" name="module">
+
+<input type="hidden" value="save" name="action">
+<input type="hidden" value="look" name="type">
+<a class="sub GOODS_SAVE" href="javascript:void(1);" onclick="$.Goods_sub(this)" pubtype="look">发表</a>
+
+</div>
+
+</div>
+
+</div></form>
+
+</div>

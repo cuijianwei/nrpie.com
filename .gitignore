@@ -3,3 +3,13 @@ config/database.php
 app/tmp/*
 app/config/database.php
 !empty
+/nbproject/private/
+nbproject/
+public/data/tpl/*
+public/data/tpl/caches/*
+public/data/tpl/caches/page/*
+public/data/tpl/caches/page/
+public/data/tpl/compiled/*
+public/data/tpl/css/*
+public/data/tpl/js/*
+public/data/admin/runtime/*

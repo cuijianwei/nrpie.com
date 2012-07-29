@@ -1,20 +1,20 @@
 <div class="keyWords">
 				<!--{if $search_list}-->
 					<dl class="con">
-						<dt class="pf1"><a href="#">HOT</a></dt>
-						<dd><!--{loop $search_list $search}--><a href=""><!--{$search['tag_name']}--></a><!--{/loop}--></dd>
+						<dt class="pf1"><a href="javascript:;">{$search_cate}</a></dt>
+						<dd><!--{loop $search_list $search}--><a href="{u book/tag tag=$search['url_tag']}"><!--{$search['tag_name']}--></a><!--{/loop}--></dd>
 					</dl>
 					<!--{/if}-->
 					<!--{if $manu_list}-->
 					<dl class="con">
-						<dt class="rs1"><a href="#">品牌</a></dt>
-						<dd class="pinp"><!--{loop $manu_list $manu}--><a href=""><!--{$manu['tag_name']}--></a><!--{/loop}--></dd>
+						<dt class="rs1"><a href="javascript:;">{$manu_cate}</a></dt>
+						<dd class="pinp"><!--{loop $manu_list $manu}--><a href="{u book/tag tag=$manu['url_tag']}"><!--{$manu['tag_name']}--></a><!--{/loop}--></dd>
 					</dl>
 					<!--{/if}-->
 					<!--{if $touch_list}-->
 					<dl class="con small">
-						<dt class="rs1"><a href="#">网站</a></dt>
-						<dd><!--{loop $touch_list $touch}--><a href=""><!--{$touch['tag_name']}--></a><!--{/loop}--></dd>
+						<dt class="rs1"><a href="javascript:;">{$touch_cate}</a></dt>
+						<dd><!--{loop $touch_list $touch}--><a href="{u book/tag tag=$touch['url_tag']}"><!--{$touch['tag_name']}--></a><!--{/loop}--></dd>
 					</dl>
 					<!--{/if}-->
 				</div>

@@ -1,0 +1,30 @@
+	<div class="topic_mianlef">
+	<!--{if $hot_thread}-->
+		<h2>热门话题</h2>
+			<ul class="topic_mianleful">
+			<!--{eval $index=0;}-->
+			<!--{loop $hot_thread $thread}-->
+			<!--{if $index%3 == 0}-->
+				<li>
+					<a href="#" class="topicimg"><img src="{getimg $thread['imgs'][0]['img'] 100 100 1}"></a>
+					<div class="con_a">
+						<h3><a href="{$thread['url']}" target="_blank" title="{$thread['title']}">{$thread['title_t']}</a></h3>
+						<div class="con1"><a href="{$thread['url']}">{$thread['click_count']}</a>成员<a href="#" style="padding-left:5px">{$thread['relay_count']}</a>分享</div>
+						<div class="con2"><a href="{$thread['url']}" target="_blank">{$thread['content']}</a></div>
+					</div>
+			<!--{else}-->
+			<!--{eval $index_t=$index-1;}-->
+					<div class="con_b {if $index_t%3 == 0}red_line{/if}">
+						<a href="{$thread['url']}" class="topicimg2"><img src="{getimg $thread['imgs'][0]['img'] 100 100 1}"></a>
+						<div class="con1">
+						<a href="{$thread['url']}" target="_blank" class="a1" title="{$thread['title']}">{$thread['title_t']}</a>
+							<a href="{$thread['url']}" class="a2" target="_blank">{$thread['content']}</a>
+						</div>
+					</div>
+			<!--{/if}-->
+			<!--{eval $index++;}-->
+			<!--{if $index%3 == 0}--></li><!--{/if}-->
+			<!--{/loop}-->		
+			</ul>
+			<!--{/if}-->
+		</div>

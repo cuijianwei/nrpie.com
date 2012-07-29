@@ -1,0 +1,31 @@
+<div id="scollpic" class="imgbd">
+<div class="hoveimg">
+<em class="lft"><i></i></em>
+<div class="wrap">
+<ul>
+{eval $i=1;}
+<!--{loop $share_list $share}-->
+{if $i%9 == 0}
+<ul>
+{/if}
+{eval $img_w=58;}
+{eval $img_h=58;}
+<li>
+<a href="{if $share['imgs'][0]['url']}{$share['imgs'][0]['url']}{else}{$share['url']}{/if}" title="{$share['hot_tags']}">
+{eval $index_img = $share['index_img'];}
+{if $index_img}
+<img class="img" src="{getimg $index_img $img_w $img_h 1}" />
+{else}
+<img class="img" src="{getimg $share['imgs'][0]['img'] $img_w $img_h 1}" />
+{/if}
+</a></li>
+{if $i%9 == 0}
+</ul>
+{/if}
+{eval $i++;}
+<!--{/loop}-->
+</ul>
+</div>
+<em class="rit"><i></i></em>
+</div>   
+</div>

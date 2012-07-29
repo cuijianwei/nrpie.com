@@ -1,0 +1,62 @@
+<div id="userside" class="fl">
+	<div class="userhead">
+		<div class="headimg"><a href="{u u/book uid=$home_uid}" target="_blank"><img src="{avatar $home_uid b $home_user['server_code'] 1}" alt="{$home_user['user_name']}" /></a></div>
+		<div class="uname r3">
+			<b class="bh">ico</b>
+			<a title="{$home_user['user_name']}" href="#">{$home_user['user_name']}</a>
+			&nbsp;&nbsp;
+			<!--{getfollow $home_uid inc/getfollow/u_menu}-->	
+		</div>
+		<div class="baseinfo">
+			<p><span class="fr"><a href="{u settings/personal}">资料设置</a></span><span class="fans"><a title="关注" href="{u u/follow uid=$home_uid}">关注 {$home_user['follows']}</a></span>|<span class="popular"><a title="粉丝" href="{u u/fans uid=$home_uid}">粉丝 {$home_user['fans']}</a></span></p>
+		</div>
+	</div>
+	<?php
+		$medals = FS('User')->getUserMedal($home_uid);
+	?>
+	<div class="medals">
+		<ul class="clearfix">
+			<li class="tit">勋章：</li>
+			<?php
+				if(isset($medals) && count($medals)>0){
+					foreach($medals as $k => $v){
+			?>
+			<li><a class="lft" href="{u medal/u uid=$home_uid}" target="_blank"><img src="{$medals[$k]['small_img']}" height="25" alt="{$medals[$k]['name']}" title="{$medals[$k]['name']}"></a></li>
+			<?php
+					}
+				}else{	
+			?>
+			<li><a href="#">暂无勋章</a></li>
+			<?php
+				}
+			?>
+		</ul>
+	</div>
+	<div class="userlist">
+		<ul class="clearfix">
+			<li><a href="{u u/index uid=$home_uid}" {if $current_menu == 'talk' || empty($current_menu)} class="on"{/if}><span>说说</span></a></li>
+			<!--<li><a href="{u u/follow uid=$home_uid}" {if $current_menu == 'follow'} class="on"{/if}><span>关注</span></a></li>-->
+			<!--<li><a href="{u u/fans uid=$home_uid}" {if $current_menu == 'fans'} class="on"{/if}><span>粉丝</span><cite>15件</cite></a></li>-->
+			<li><a href="{u u/bao uid=$home_uid}" {if $current_menu == 'bao'} class="on"{/if}><span>私家晒货</span><cite>15件</cite></a></li>
+			<li><a href="{u u/photo uid=$home_uid}" {if $current_menu == 'photo'} class="on"{/if}><span>搭配</span><cite>15件</cite></a></li>
+			<li><a href="{u u/album uid=$home_uid}" {if $current_menu == 'album'} class="on"{/if}><span>我的收藏</span><cite>15件</cite></a></li>
+			<li><a href="{u u/topic uid=$home_uid}" {if $current_menu == 'topic'} class="on"{/if}><span>话题</span><cite>15件</cite></a></li>
+			<li><a href="{u u/message uid=$home_uid}" {if $current_menu == 'message'} class="on"{/if}><span>信件</span><cite>15件</cite></a></li>
+		</ul>
+	</div>
+	<div class="certifi">淘宝买家认证</div>
+</div>
+<script type="text/javascript">
+function UMenuUpdateUserFollow(obj,result)
+{
+	var parent = $(obj).parent();
+	if(result.status == 1)
+	{
+		parent.html('<span class="followed">已关注</span><div class="followed_border"></div><a onclick="$.User_Follow({$home_uid},this,UMenuUpdateUserFollow);" href="javascript:;" class="follow_del">取消</a>');
+	}
+	else
+	{
+		parent.html('<a onclick="$.User_Follow($home_uid,this,UMenuUpdateUserFollow);" href="javascript:;" class="addfo">加关注</a>');
+	}
+}
+</script>

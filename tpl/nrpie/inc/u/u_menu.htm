@@ -3,13 +3,24 @@
 		<div class="headimg"><a href="{u u/book uid=$home_uid}" target="_blank"><img src="{avatar $home_uid b $home_user['server_code'] 1}" alt="{$home_user['user_name']}" /></a></div>
 		<div class="uname r3">
 			<b class="bh">ico</b>
-			<a title="{$home_user['user_name']}" href="#">{$home_user['user_name']}</a>
-			&nbsp;&nbsp;
-			<!--{getfollow $home_uid inc/getfollow/u_menu}-->	
+			<a title="{$home_user['user_name']}" href="#" class="una">{$home_user['user_name']}</a>
+            <a class="exmsg arr2" title="" href="#">达人</a>
 		</div>
-		<div class="baseinfo">
-			<p><span class="fr"><a href="{u settings/personal}">资料设置</a></span><span class="fans"><a title="关注" href="{u u/follow uid=$home_uid}">关注 {$home_user['follows']}</a></span>|<span class="popular"><a title="粉丝" href="{u u/fans uid=$home_uid}">粉丝 {$home_user['fans']}</a></span></p>
-		</div>
+        
+        <div class="per_info">
+			<!--{getfollow $home_uid inc/getfollow/u_menu}-->
+            <span class="rit">
+                <a target="_blank" href="{u settings/personal}">个人资料</a>
+                <a target="_blank" href="{u u/sendmsg uid=$home_uid}">发私信</a>
+            </span>
+        </div>			
+        <div class="umodule">
+            <ul class="user_atten clearfix ">
+                <li><a href="{u u/follow uid=$home_uid}"><strong>{$home_user['follows']}</strong><span>关注</span></a></li>					
+                <li><a  href="{u u/fans uid=$home_uid}"><strong>{$home_user['fans']}</strong><span>粉丝</span></a></li>
+                <li class="last"><a href="#"><strong class="col">25</strong><span>被赞</span></a></li>
+            </ul>
+        </div>
 	</div>
 	<?php
 		$medals = FS('User')->getUserMedal($home_uid);

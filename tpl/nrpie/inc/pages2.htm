@@ -1,26 +1,26 @@
-<!--{if $topic['pager2']['page_count'] > 1}-->
-	<!--{if $topic['pager2']['pager2']}-->
-		<!--{loop $topic['pager2']['page_nums'] $page_num}-->
-		<!--{if $topic['pager2']['page'] == $page_num['name']}-->
-		<a class="c">$page_num[name]</a>
-		<!--{elseif $page_num['name'] == '...'}-->
-		<i>...</i>
-		<!--{else}-->
-		<a href="$page_num[url]" page="$page_num[name]">$page_num[name]</a>
-		<!--{/if}-->
-		<!--{/loop}-->
-	<!--{/if}-->
-<!--{/if}-->
-<!--{if $thread['pager2']['page_count'] > 1}-->
-	<!--{if $thread['pager2']['pager2']}-->
-		<!--{loop $thread['pager2']['page_nums'] $page_num}-->
-		<!--{if $thread['pager2']['page'] == $page_num['name']}-->
-		<a class="c">$page_num[name]</a>
-		<!--{elseif $page_num['name'] == '...'}-->
-		<i>...</i>
-		<!--{else}-->
-		<a href="$page_num[url]" page="$page_num[name]">$page_num[name]</a>
-		<!--{/if}-->
-		<!--{/loop}-->
-	<!--{/if}-->
+<!--{if $topic['pager2']['page_count'] > 1}-->
+	<!--{if $topic['pager2']['pager2']}-->
+		<!--{loop $topic['pager2']['page_nums'] $page_num}-->
+		<!--{if $topic['pager2']['page'] == $page_num['name']}-->
+		<a class="c">$page_num[name]</a>
+		<!--{elseif $page_num['name'] == '...'}-->
+		<i>...</i>
+		<!--{else}-->
+		<a href="$page_num[url]" page="$page_num[name]">$page_num[name]</a>
+		<!--{/if}-->
+		<!--{/loop}-->
+	<!--{/if}-->
+<!--{/if}-->
+<!--{if $thread['pager2']['page_count'] > 1}-->
+	<!--{if $thread['pager2']['pager2']}-->
+		<!--{loop $thread['pager2']['page_nums'] $page_num}-->
+		<!--{if $thread['pager2']['page'] == $page_num['name']}-->
+		<a class="c">$page_num[name]</a>
+		<!--{elseif $page_num['name'] == '...'}-->
+		<i>...</i>
+		<!--{else}-->
+		<a href="$page_num[url]" page="$page_num[name]">$page_num[name]</a>
+		<!--{/if}-->
+		<!--{/loop}-->
+	<!--{/if}-->
 <!--{/if}-->

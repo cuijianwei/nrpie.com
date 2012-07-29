@@ -1,1 +1,10 @@
-<li id="COMMENT_{$comment['comment_id']}" class="c_f">	<a target="_blank" href="/u.php?action=index&amp;uid={$comment['uid']}" title="{$comment['user']['user_name']}" class="user_avt">		<img alt="{$comment['user']['user_name']}" src="{avatar $comment['uid'] m $share_user['server_code'] 1}" uid="{$comment['uid']}" class="GUID avt">	</a>	<p class="sms">		<!--{getuser $comment['uid'] 1 '' 'n icard'}-->		<span>（{$comment['time']}）</span>		</br>		回复：{$comment['content']}	</p>	<div>	<!--{if $is_remove_comment}-->		<a onclick="$.Delete_Comment($comment['comment_id'],this);" class="del" w="f" href="javascript:void(0);">删除</a>		<!--{/if}-->		<a class="rpl" w="f" href="javascript:;" uname='{$comment['user']['user_name']}' cid="{$comment['comment_id']}" onclick="$.Reply_Comment(this);">回复</a>	</div></li>
+<li class="c_f" id="COMMENT_{$comment['comment_id']}">
+	<!--{getuser $comment['uid'] 0 's,36' ',avt icard'}-->
+	<p class="sms"><!--{getuser $comment['uid'] 1 '' 'n icard'}-->：回复{$comment['content']}<span>（{$comment['time']}）</span></p>
+	<div>
+		<!--{if $is_remove_comment}-->
+		<a onclick="$.Delete_Comment($comment['comment_id'],this);" class="del" w="f" href="javascript:void(0);">删除</a>
+		<!--{/if}-->
+		<a class="rpl" w="f" href="javascript:;" uname='{$comment['user']['user_name']}' cid="{$comment['comment_id']}" onclick="$.Reply_Comment(this);">回复</a>
+	</div>
+</li>

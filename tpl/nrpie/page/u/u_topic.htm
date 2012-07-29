@@ -1,86 +1,86 @@
-﻿<?php
-	//$css_list[0]['url'] = './tpl/css/club.css';
-	$js_list[0][] = './public/js/jquery.slides.js';
-	$js_list[0][] = './tpl/js/club.js';
-?>
-<!--{template inc/header}-->
-<!--主体盒子开始-->
-<div id="userwrap" class="clearfix">
-<!--{template inc/u/u_menu}-->
-<div id="userbody" class="fr">
-	<div class="u_piece">
-		<div class="u_piece_hd">
-			<h2>{$_FANWE['home_user_names']['short']}的主题<span class="view_tips">[<a href="{u club/forum fid=$root_forum['fid']}" class="all{if $is_root} on{/if}">查看所有话题</a>]</span></h2>				
-		</div>
-		<div class="topic_lefcon">
-		<!--{if empty($thread_list)}-->
-		<div class="empty">
-			<img alt="" class="fl" src="./tpl/images/fanwe4.png">
-			<span>呼~~这里还是空的~~</span>
-		</div> 
-		<!--{else}-->
-			<!--{loop $thread_list $thread}-->
-			<table width="755" border="0" cellpadding="0" cellspacing="0" >
-					<tr>
-							<td width="75" height="60" rowspan="2" align="right">
-								<div class="topic_toux"> 
-								<!--{getuser $thread['uid'] 0 'm,64' ',u_name fl'}-->
-									<!--{if $thread['is_best'] == 1}-->
-										<span class="tuijian"></span>
-									<!--{/if}--> 
-								</div>
-							</td>
-							<td width="465" height="30" valign="bottom"><p class="topic_zhid">
-							<!--{if $thread['is_top'] == 1}-->
-								[{lang topic_top}] 
-							<!--{/if}-->
-							<a class="sort_focus" target="_blank" href="{$thread['url']}">
-							{cutstr $thread['title'] 60}
-							</a>
-							<span style='margin-left:30px;'>
-							<!--{subtemplate inc/pages2}-->
-							</span>
-							</p>
-						</td>
-							<td width="215" align="right" valign="bottom"><a href="#" class=" sort_focus topic_rig20">{$thread['post_count']}/{$thread['click_count']}</a></td>
-					</tr>
-					<tr>
-							<td height="30" valign="middle"><p class="topic_dengji">
-							<span class="topic_name">
-							<!--{getuser $thread['uid'] 0 '' 'topic_name'}-->
-							</span>
-							<!-- 等级：{$medals['name']} -->
-							</p></td>
-							<td width="215" align="right"><span class="topic_rig20">
-							<!--{if !empty($thread['lastposter'])}-->
-							{$thread['last_time']}
-							<!--{else}-->
-							{$thread['time']}
-							<!--{/if}-->
-							</span></td>
-					</tr>
-			</table>
-			<!--{/loop}-->
-			<div>
-			<!--{subtemplate inc/pages}-->
-			</div>
-			<!--{/if}-->
-		</div>
-	</div>
-</div>
-<div class="clear" style=" clear:both"></div>
-</div>
-<!--主体盒子结束-->
-<script type="text/javascript">
-/*
-jQuery(function($){
-<!--{if getIsManage('club')}-->
-	$('.topic_list .tl_f').hover(function(){
-		var topicID = this.getAttribute('topicID');
-		$.GetManageMenu('club',topicID,this);
-	},function(){});
-<!--{/if}-->
-});
-*/
-</script>
+﻿<?php
+	//$css_list[0]['url'] = './tpl/css/club.css';
+	$js_list[0][] = './public/js/jquery.slides.js';
+	$js_list[0][] = './tpl/js/club.js';
+?>
+<!--{template inc/header}-->
+<!--主体盒子开始-->
+<div id="userwrap" class="clearfix">
+<!--{template inc/u/u_menu}-->
+<div id="userbody" class="fr">
+	<div class="u_piece">
+		<div class="u_piece_hd">
+			<h2>{$_FANWE['home_user_names']['short']}的主题<span class="view_tips">[<a href="{u club/forum fid=$root_forum['fid']}" class="all{if $is_root} on{/if}">查看所有话题</a>]</span></h2>				
+		</div>
+		<div class="topic_lefcon">
+		<!--{if empty($thread_list)}-->
+		<div class="empty">
+			<img alt="" class="fl" src="./tpl/images/fanwe4.png">
+			<span>呼~~这里还是空的~~</span>
+		</div> 
+		<!--{else}-->
+			<!--{loop $thread_list $thread}-->
+			<table width="755" border="0" cellpadding="0" cellspacing="0" >
+					<tr>
+							<td width="75" height="60" rowspan="2" align="right">
+								<div class="topic_toux"> 
+								<!--{getuser $thread['uid'] 0 'm,64' ',u_name fl'}-->
+									<!--{if $thread['is_best'] == 1}-->
+										<span class="tuijian"></span>
+									<!--{/if}--> 
+								</div>
+							</td>
+							<td width="465" height="30" valign="bottom"><p class="topic_zhid">
+							<!--{if $thread['is_top'] == 1}-->
+								[{lang topic_top}] 
+							<!--{/if}-->
+							<a class="sort_focus" target="_blank" href="{$thread['url']}">
+							{cutstr $thread['title'] 60}
+							</a>
+							<span style='margin-left:30px;'>
+							<!--{subtemplate inc/pages2}-->
+							</span>
+							</p>
+						</td>
+							<td width="215" align="right" valign="bottom"><a href="#" class=" sort_focus topic_rig20">{$thread['post_count']}/{$thread['click_count']}</a></td>
+					</tr>
+					<tr>
+							<td height="30" valign="middle"><p class="topic_dengji">
+							<span class="topic_name">
+							<!--{getuser $thread['uid'] 0 '' 'topic_name'}-->
+							</span>
+							<!-- 等级：{$medals['name']} -->
+							</p></td>
+							<td width="215" align="right"><span class="topic_rig20">
+							<!--{if !empty($thread['lastposter'])}-->
+							{$thread['last_time']}
+							<!--{else}-->
+							{$thread['time']}
+							<!--{/if}-->
+							</span></td>
+					</tr>
+			</table>
+			<!--{/loop}-->
+			<div>
+			<!--{subtemplate inc/pages}-->
+			</div>
+			<!--{/if}-->
+		</div>
+	</div>
+</div>
+<div class="clear" style=" clear:both"></div>
+</div>
+<!--主体盒子结束-->
+<script type="text/javascript">
+/*
+jQuery(function($){
+<!--{if getIsManage('club')}-->
+	$('.topic_list .tl_f').hover(function(){
+		var topicID = this.getAttribute('topicID');
+		$.GetManageMenu('club',topicID,this);
+	},function(){});
+<!--{/if}-->
+});
+*/
+</script>
 <!--{template inc/footer}-->

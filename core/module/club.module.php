@@ -377,56 +377,56 @@ class ClubModule
 		fHeader('location: '.FU('club/forum',array('fid'=>$forum_id,'sort'=>'tid')));
 	}
 	
-	function modifytopic()
+	function modifytopic()
 	{
-		global $_FANWE;
-		ob_start();
-		session_start();
-		$id = intval($_FANWE['request']['tid']);
-		if($id == 0)
-			fHeader('location: '.FU('club/index'));
-		
-		$topic = FS('Topic')->getTopicById($id);
-		if(empty($topic))
-			fHeader('location: '.FU('club/index'));
-			
-		$_FANWE['nav_title'] = lang('common','club');
-		$_FANWE['nav_title'] = $topic['title'] .' - '. $_FANWE['nav_title'];
-
-		$forum_id= $topic['fid'];		
-		$cache_args = array(
-				'club_modifytopic',
-				$forum_id,
+		global $_FANWE;
+		ob_start();
+		session_start();
+		$id = intval($_FANWE['request']['tid']);
+		if($id == 0)
+			fHeader('location: '.FU('club/index'));
+		
+		$topic = FS('Topic')->getTopicById($id);
+		if(empty($topic))
+			fHeader('location: '.FU('club/index'));
+			
+		$_FANWE['nav_title'] = lang('common','club');
+		$_FANWE['nav_title'] = $topic['title'] .' - '. $_FANWE['nav_title'];
+
+		$forum_id= $topic['fid'];		
+		$cache_args = array(
+				'club_modifytopic',
+				$forum_id,
 		);
-		$topic['share'] = FS('Share')->getShareDetail($topic['share_id']);
-		$current_fid = $forum_id;
-		$forum = $_FANWE['cache']['forums']['all'][$forum_id];
-		if(empty($forum))
-			fHeader('location: '.FU('club/index'));
-	
-		$is_best = false;
-		$is_root = true;
-		$root_forum = $forum;
-		if($forum['parent_id'] > 0)
-		{
-			$is_root = false;
-			$root_forum = $_FANWE['cache']['forums']['all'][$forum['parent_id']];
-		}
-		else
-		{
-			if(isset($forum['childs']))
-				$current_fid = current($forum['childs']);
+		$topic['share'] = FS('Share')->getShareDetail($topic['share_id']);
+		$current_fid = $forum_id;
+		$forum = $_FANWE['cache']['forums']['all'][$forum_id];
+		if(empty($forum))
+			fHeader('location: '.FU('club/index'));
+	
+		$is_best = false;
+		$is_root = true;
+		$root_forum = $forum;
+		if($forum['parent_id'] > 0)
+		{
+			$is_root = false;
+			$root_forum = $_FANWE['cache']['forums']['all'][$forum['parent_id']];
+		}
+		else
+		{
+			if(isset($forum['childs']))
+				$current_fid = current($forum['childs']);
 		}
 		//var_dump($topic['share']['imgs']);
 		//var_dump($forum);
-		//echo $topic['title'];
-	
-		include template('page/club/club_modifytopic');
-	
-		display();
+		//echo $topic['title'];
+	
+		include template('page/club/club_modifytopic');
+	
+		display();
 	}
-	function deltopic()
-	{
+	function deltopic()
+	{
 		global $_FANWE;
 		$tid= intval($_FANWE['request']['tid']);
 		if($tid == 0)
@@ -437,88 +437,88 @@ class ClubModule
 			fHeader('location: '.FU('club/forum',array('fid'=>$forum_id,'sort'=>'tid')));
 		}else{
 			echo 'False';
-		}
+		}
 	}
 	
-	function domodifytopic()
-	{
-		global $_FANWE;
-		if($_FANWE['uid'] == 0)
-			fHeader('location: '.FU('club/index'));
-	
-		$forum_id= intval($_FANWE['request']['fid']);
-		if($forum_id == 0)
+	function domodifytopic()
+	{
+		global $_FANWE;
+		if($_FANWE['uid'] == 0)
 			fHeader('location: '.FU('club/index'));
-		
-		$tid= intval($_FANWE['request']['tid']);
-		if($tid == 0)
+	
+		$forum_id= intval($_FANWE['request']['fid']);
+		if($forum_id == 0)
 			fHeader('location: '.FU('club/index'));
 		
-		//echo $tid;exit;
-			
-		$forum = $_FANWE['cache']['forums']['all'][$forum_id];
-		if(empty($forum))
-			fHeader('location: '.FU('club/index'));
-	
-		$_FANWE['request']['title'] = trim($_FANWE['request']['title']);
-		$_FANWE['request']['content'] = trim($_FANWE['request']['content']);
-		if($_FANWE['request']['title'] == '' || $_FANWE['request']['content'] == '')
-			fHeader('location: '.FU('club/index'));
-	
-		$_FANWE['request']['uid'] = $_FANWE['uid'];
-		$_FANWE['request']['type'] = 'bar';
-	
-		if(!checkIpOperation("add_share",SHARE_INTERVAL_TIME))
-		{
-			showError('提交失败',lang('share','interval_tips'),-1);
-		}
-	
-		$check_result = FS('Share')->checkWord($_FANWE['request']['content'],'content');
-		if($check_result['error_code'] == 1)
-		{
-			showError('提交失败',$check_result['error_msg'],-1);
-		}
-	
-		$check_result = FS('Share')->checkWord($_FANWE['request']['title'],'title');
-		if($check_result['error_code'] == 1)
-		{
-			showError('提交失败',$check_result['error_msg'],-1);
-		}
-	
-		$check_result = FS('Share')->checkWord($_FANWE['request']['tags'],'tag');
-		if($check_result['error_code'] == 1)
-		{
-			showError('提交失败',$check_result['error_msg'],-1);
-		}
-	
-		$share = FS('Share')->submit($_FANWE['request']);
-	
-		if($share['status'])
-		{
-			$thread = array();
-			$thread['fid'] = $forum_id;
-			$thread['share_id'] = $share['share_id'];
-			$thread['uid'] = $_FANWE['uid'];
-			$thread['title'] = htmlspecialchars($_FANWE['request']['title']);
-			$thread['content'] = htmlspecialchars($_FANWE['request']['content']);
-			$thread['create_time'] = fGmtTime();
+		$tid= intval($_FANWE['request']['tid']);
+		if($tid == 0)
+			fHeader('location: '.FU('club/index'));
+		
+		//echo $tid;exit;
+			
+		$forum = $_FANWE['cache']['forums']['all'][$forum_id];
+		if(empty($forum))
+			fHeader('location: '.FU('club/index'));
+	
+		$_FANWE['request']['title'] = trim($_FANWE['request']['title']);
+		$_FANWE['request']['content'] = trim($_FANWE['request']['content']);
+		if($_FANWE['request']['title'] == '' || $_FANWE['request']['content'] == '')
+			fHeader('location: '.FU('club/index'));
+	
+		$_FANWE['request']['uid'] = $_FANWE['uid'];
+		$_FANWE['request']['type'] = 'bar';
+	
+		if(!checkIpOperation("add_share",SHARE_INTERVAL_TIME))
+		{
+			showError('提交失败',lang('share','interval_tips'),-1);
+		}
+	
+		$check_result = FS('Share')->checkWord($_FANWE['request']['content'],'content');
+		if($check_result['error_code'] == 1)
+		{
+			showError('提交失败',$check_result['error_msg'],-1);
+		}
+	
+		$check_result = FS('Share')->checkWord($_FANWE['request']['title'],'title');
+		if($check_result['error_code'] == 1)
+		{
+			showError('提交失败',$check_result['error_msg'],-1);
+		}
+	
+		$check_result = FS('Share')->checkWord($_FANWE['request']['tags'],'tag');
+		if($check_result['error_code'] == 1)
+		{
+			showError('提交失败',$check_result['error_msg'],-1);
+		}
+	
+		$share = FS('Share')->submit($_FANWE['request']);
+	
+		if($share['status'])
+		{
+			$thread = array();
+			$thread['fid'] = $forum_id;
+			$thread['share_id'] = $share['share_id'];
+			$thread['uid'] = $_FANWE['uid'];
+			$thread['title'] = htmlspecialchars($_FANWE['request']['title']);
+			$thread['content'] = htmlspecialchars($_FANWE['request']['content']);
+			$thread['create_time'] = fGmtTime();
 			//$tid = FDB::insert('forum_thread',$thread,true);
 			FDB::update('forum_thread',$thread,array('tid'=>$tid));
 			
-			
-			FDB::query('UPDATE '.FDB::table('share').' SET rec_id = '.$tid.', click_count = 1'.'
-			WHERE share_id = '.$share['share_id']);
-				
-			FDB::query("update ".FDB::table("user_count")." set forums = forums + 1,threads = threads + 1 where uid = ".$_FANWE['uid']);
-			FDB::query("update ".FDB::table("forum")." set thread_count = thread_count+1 where fid = ".$forum_id);
-			if($forum['parent_id'] > 0)
-				FDB::query("update ".FDB::table("forum")." set thread_count = thread_count+1 where fid = ".$forum['parent_id']);
-				
-			FS('Medal')->runAuto($_FANWE['uid'],'forums');
+			
+			FDB::query('UPDATE '.FDB::table('share').' SET rec_id = '.$tid.', click_count = 1'.'
+			WHERE share_id = '.$share['share_id']);
+				
+			FDB::query("update ".FDB::table("user_count")." set forums = forums + 1,threads = threads + 1 where uid = ".$_FANWE['uid']);
+			FDB::query("update ".FDB::table("forum")." set thread_count = thread_count+1 where fid = ".$forum_id);
+			if($forum['parent_id'] > 0)
+				FDB::query("update ".FDB::table("forum")." set thread_count = thread_count+1 where fid = ".$forum['parent_id']);
+				
+			FS('Medal')->runAuto($_FANWE['uid'],'forums');
 			FS('User')->medalBehavior($_FANWE['uid'],'continue_forum');
-			/**/
-		}
-		fHeader('location: '.FU('club/forum',array('fid'=>$forum_id,'sort'=>'tid')));
+			/**/
+		}
+		fHeader('location: '.FU('club/forum',array('fid'=>$forum_id,'sort'=>'tid')));
 	}
 }
 ?>

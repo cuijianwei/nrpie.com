@@ -1,28 +1,28 @@
-<?php
-         $css_list[0]['url'][] = './tpl/css/tweetlist.css';
-	$css_list[0]['url'][] = './tpl/css/usercenter.css';
-?>
-<!--{template inc/header}-->
-<div id="userwrap" class="clearfix">
-<!--{template inc/u/u_menu}-->
-	<div id="userbody" class="fr">
-		<div class="u_piece1">
-			<div class="u_piect1_bd">
-                  <!--{if $home_uid == $_FANWE['uid']}-->
-		<!--{template inc/u/u_publish_share}-->
-				<div class="zone_tab">
-					<li class="{if ACTION_NAME == 'me'}on{/if}"><a href="{u u/index uid=$home_uid}"><span>全部</span></a></li>
-					<li class="{if ACTION_NAME == 'talk'}on{/if}"><a href="{u u/talk uid=$home_uid}"><span>{$_FANWE['home_user_names']['short']}发表的</span></a></li>
-					<li class="{if ACTION_NAME == 'atme'}on{/if}"><a href="{u u/atme uid=$home_uid}"><span>@我的</span></a></li>
-					<li class="{if ACTION_NAME == 'comments'}on{/if}"><a href="{u u/comments uid=$home_uid}"><span>评论{$_FANWE['home_user_names']['short']}的</span></a></li>					
-				</div>
-                  <!--{/if}-->
-				{$share_list_html}
-			</div>			
-		</div>
-		<div id="fenye">
-            <!--{subtemplate inc/pages}--> 
-		</div>
-	</div>
-</div>
-<!--{template inc/footer}-->
+<?php
+         $css_list[0]['url'][] = './tpl/css/tweetlist.css';
+	$css_list[0]['url'][] = './tpl/css/usercenter.css';
+?>
+<!--{template inc/header}-->
+<div id="userwrap" class="clearfix">
+<!--{template inc/u/u_menu}-->
+	<div id="userbody" class="fr">
+		<div class="u_piece1">
+			<div class="u_piect1_bd">
+                  <!--{if $home_uid == $_FANWE['uid']}-->
+		<!--{template inc/u/u_publish_share}-->
+				<div class="zone_tab">
+					<li class="{if ACTION_NAME == 'me'}on{/if}"><a href="{u u/index uid=$home_uid}"><span>全部</span></a></li>
+					<li class="{if ACTION_NAME == 'talk'}on{/if}"><a href="{u u/talk uid=$home_uid}"><span>{$_FANWE['home_user_names']['short']}发表的</span></a></li>
+					<li class="{if ACTION_NAME == 'atme'}on{/if}"><a href="{u u/atme uid=$home_uid}"><span>@我的</span></a></li>
+					<li class="{if ACTION_NAME == 'comments'}on{/if}"><a href="{u u/comments uid=$home_uid}"><span>评论{$_FANWE['home_user_names']['short']}的</span></a></li>					
+				</div>
+                  <!--{/if}-->
+				{$share_list_html}
+			</div>			
+		</div>
+		<div id="fenye">
+            <!--{subtemplate inc/pages}--> 
+		</div>
+	</div>
+</div>
+<!--{template inc/footer}-->

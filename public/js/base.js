@@ -867,7 +867,6 @@ FANWE.UPLOAD_IMAGE_SERVER = '';
 	{
 		if(!$.Check_Login())
 			return false;
-
 		var query = new Object();
 		query.id = share_id;
 		query.size = size;
@@ -893,11 +892,15 @@ FANWE.UPLOAD_IMAGE_SERVER = '';
 				$("#fav_fanwe").css({"opacity":0,"left":left,"top":top-10});
 				$("#fav_fanwe").animate({top:top-25,opacity:1},"fast",'swing',function(){
 					if(result.status == 2)
+					{
+						alert('您已经收藏过了！');
 						var box = "<div class='fav_tip' id='fav_tip'><div class='ffail'><span>"+ LANG.fav_share_yi +"</span><a onclick='$.Remove_Fav_Share("+share_id+",this,\""+ parentKey +"\");' href='javascript:;'>"+ LANG.remove +"</a></div></div>";
+					}
 					if(result.status == 3)
 						var box = "<div class='fav_tip' id='fav_tip'><div class='ffail'>"+ LANG.zhiji +"</div></div>";
 					if(result.status == 4)
 					{
+						alert('添加收藏成功！');
 						var box = "<div class='fav_tip' id='fav_tip'><div class='fok'><a onclick='$.Pop_Share_Comment("+share_id+");' href='javascript:;'>"+ LANG.fav_comment +"</a></div></div>";
 						$(".SHARE_FAV_COUNT",parent).html(result.count);
 						if(result.count > 0)
@@ -906,7 +909,7 @@ FANWE.UPLOAD_IMAGE_SERVER = '';
 							$(".SHARE_FAV_BOX",parent).hide();
 						$(".SHARE_FAV_LIST",parent).html(result.collects);
 					}
-					$("body").append(box);
+//					$("body").append(box);
 					$("#fav_tip").css({"left":left-30,"top":top-90}).fadeIn();
 					$("#fav_fanwe").hover(function(){
 						clearTimeout(FANWE.Fav_Timer);

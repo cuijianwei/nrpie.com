@@ -1,0 +1,49 @@
+<!--{template inc/header}-->
+<!--主体盒子开始-->
+<div class="mainBox">
+<!--上部开始-->
+<div class="mainTop clearfix">
+<div class="lef">
+<!--焦点图开始-->
+<div id="Marquee" class="Marquee"> 
+{advlayout id=2 count=5}
+</div> 
+<!--滚动图片开始-->
+<!--{dynamic getIndexNewShare}-->
+<!--滚动图片开始-->	
+<!--热搜开始-->
+<!--{dynamic getIndexHotManu}-->
+<!--热搜结束-->
+</div>
+<div class="rig">
+<div class="AD mainTop_img">
+{advlayout id=5 count=1}
+</div>
+<div class="tab_top">
+<!--{dynamic getIndexThreadUser}-->
+</div>
+<div class="tab_btm">
+<!--{dynamic getIndexHotRank}-->
+</div>
+</div>
+</div>		
+<!--上部结束-->
+<!--分类开始-->
+<!--{dynamic getIndexCateShare}-->
+<!--分类结束-->	
+<!--约会帮帮忙-->
+
+<!--热门话题以及优秀特派员开始-->
+	<div class="topic_mian">
+	<!--{dynamic getIndexHotThread}-->
+	<!--{dynamic getIndexUser}-->
+	</div>	
+	<!--热门话题以及优秀特派员结束-->
+	<!--品牌开始-->
+{advlayout id=6 count=32}
+<!--品牌结束-->
+<!--分类结束--> 
+		</div>
+		
+		<!--分类结束-->
+<!--{template inc/footer}-->

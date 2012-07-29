@@ -1,7 +1,9 @@
 <div id="scollpic" class="imgbd">
 <div class="hoveimg">
 <em class="lft"><i></i></em>
+<div class="wrap">
 <ul>
+{eval $i=1;}
 <!--{loop $share_list $share}-->
 {eval $img_w=58;}
 {eval $img_h=58;}
@@ -14,8 +16,14 @@
 <img class="img" src="{getimg $share['imgs'][0]['img'] $img_w $img_h 1}" />
 {/if}
 </a></li>
+{if $i%9 == 0}
+</ul>
+<ul>
+{/if}
+{eval $i++;}
 <!--{/loop}-->
 </ul>
+</div>
 <em class="rit"><i></i></em>
 </div>   
 </div>
